@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="../Authentication/profile.html">Profile</a></li>
+                <li><button>Log Out</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div>
+            <h1>Customers Page</h1>
+        </div>
+        <div>
+            <p>Total customers: 53</p>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div>
+            <form action="">
+                <input type="text" placeholder="Search by customer name or email">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Currently Borrowing</th>
+                        <th>Borrowed Books</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mohammed Ahmed</td>
+                        <td>mohammed@gmail.com</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><a href="customer.html?customer=1">Show</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ali Atef</td>
+                        <td>Ali@gmail.com</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><a href="customer.html?customer=2">Show</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mustafa</td>
+                        <td>mustafs@gmail.com</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td><a href="customer.html?customer=3">Show</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Mahmoud Omer</td>
+                        <td>mahmoud@gmail.com</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td><a href="customer.html?customer=4">Show</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>
