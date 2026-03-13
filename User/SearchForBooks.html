@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>Search for books</title>
+    </head>
+    <nav>
+        <ul>
+       <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="customer.html">Customers</a></li>
+                <li><a href="../Authentication/profile.html">Profile</a></li>
+                <li><a href = "borrrow.html">borrowed books</a></li>
+                <li><button>Log Out</button></li>
+        </ul>
+    </nav>
+<hr>
+    <body>
+      <h2>Search for books</h2>
+
+      <label>Search</label>
+      <input type ="text" placeholder="search by title or author...">
+
+      <label>Category:</label>
+      <select>
+        <option>All</option>
+        <option>Fiction</option>
+        <option>Science</option>
+        <option>History</option>
+        <option>literature</option>
+        <option>Fantasy</option>
+        <option>Programming</option>
+      </select>
+
+      <button>search</button><br>
+      <table border ="2">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Clean code</td>
+                <td>Robert C. Martin</td>
+                <td>Programming</td>
+                <td>Available</td>
+                <td><a href="select.html">select<button>Borrow</button></td>
+            </tr>
+            <tr>
+                <td>The Hobbit</td>
+                <td>J.R.R. Tolkien</td>
+                <td>Fantasy</td>
+                <td>Available</td>
+                <td><a href="select.html">select<button>Borrow</button></td>
+            </tr>
+            <tr>
+                <td>A brief history of time</td>
+                <td>stephen hawking</td>
+                <td>science</td>
+                <td>Unavailable</td>
+                <td><a href="select.html">select <button>Borrow</button></td>
+            </tr>
+        </tbody>
+
+
+
+      </table>
+
+
+    </body>
+    
+</html>
