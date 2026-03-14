@@ -4,13 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Borrowed Books</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
+  <link rel="stylesheet" href="/assets/css/global.css">
 
+    <style>
         h1 {
             color: #333;
         }
@@ -54,13 +50,17 @@
 </head>
 <body>
     <header>
+        <a href="/" class="logo">
+            <img src="/assets/images/logo.png" alt="logo">
+        </a>
+
         <nav>
-            <ul style="display:flex; gap:10px; list-style:none; padding:0;">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="books.html">Books</a></li>
                 <li><a href="borrowed.html">Borrowed Books</a></li>
-                <li><button>Log Out</button></li>
             </ul>
+            <button>Log out</button>
         </nav>
     </header>
 

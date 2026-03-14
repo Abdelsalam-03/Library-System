@@ -3,13 +3,9 @@
     <head>
         <meta charset ="UTF-8">
         <title>Books</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
+        <link rel="stylesheet" href="/assets/css/global.css">
 
+    <style>
         h1 {
             color: #333;
         }
@@ -53,16 +49,22 @@
 </head>
 <body>
     <header>
+        <a href="/" class="logo">
+            <img src="/assets/images/logo.png" alt="logo">
+        </a>
+
         <nav>
-            <ul style="display:flex; gap:10px; list-style:none; padding:0;">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="books.html">Books</a></li>
                 <li><a href="borrowed.html">Borrowed Books</a></li>
-                <li><button>Log Out</button></li>
             </ul>
+            <button>Log out</button>
         </nav>
     </header>
-      <h2>Search for books</h2>
+
+    <section>
+<h2>Search for books</h2>
 
       <label>Search</label>
       <input type ="text" placeholder="search by title or author...">
@@ -117,6 +119,8 @@
 
       </table>
 
+
+    </section>
 
     </body>
     
