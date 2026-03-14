@@ -2,20 +2,66 @@
 <html lang = "en">
     <head>
         <meta charset ="UTF-8">
-        <title>Search for books</title>
-    </head>
-    <nav>
-        <ul>
-       <li><a href="index.html">Home</a></li>
+        <title>Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="display:flex; gap:10px; list-style:none; padding:0;">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="books.html">Books</a></li>
-                <li><a href="customer.html">Customers</a></li>
-                <li><a href="../Authentication/profile.html">Profile</a></li>
-                <li><a href = "borrrow.html">borrowed books</a></li>
+                <li><a href="borrowed.html">Borrowed Books</a></li>
                 <li><button>Log Out</button></li>
-        </ul>
-    </nav>
-<hr>
-    <body>
+            </ul>
+        </nav>
+    </header>
       <h2>Search for books</h2>
 
       <label>Search</label>
@@ -49,21 +95,21 @@
                 <td>Robert C. Martin</td>
                 <td>Programming</td>
                 <td>Available</td>
-                <td><a href="select.html">select<button>Borrow</button></td>
+                <td><a href="view_book.html">select<button>Borrow</button></td>
             </tr>
             <tr>
                 <td>The Hobbit</td>
                 <td>J.R.R. Tolkien</td>
                 <td>Fantasy</td>
                 <td>Available</td>
-                <td><a href="select.html">select<button>Borrow</button></td>
+                <td><a href="view_book.html">select<button>Borrow</button></td>
             </tr>
             <tr>
                 <td>A brief history of time</td>
                 <td>stephen hawking</td>
                 <td>science</td>
                 <td>Unavailable</td>
-                <td><a href="select.html">select <button>Borrow</button></td>
+                <td><a href="view_book.html">select <button>Borrow</button></td>
             </tr>
         </tbody>
 
