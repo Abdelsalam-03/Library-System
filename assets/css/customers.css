@@ -1,0 +1,44 @@
+.customers-count {
+    background-color: rgba(201, 164, 127, 0.959);
+    width: 185px;
+    height: 35px;
+    border-radius: 15px;
+}
+
+.customer-count-text {
+    padding-left:20px; 
+    padding-top: 3px;
+}
+
+.search-input {
+    padding: 5px;
+    width: 50%;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 22%; 
+    border: 1px solid #ccc;
+}
+
+.search-button {
+    background-color: rgb(116, 0, 35);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    height: 36px;
+    margin-left: 10px; 
+}
+
+.customers-table {
+    border-collapse: collapse ;
+    width: 100%;
+    margin-top: 20px;
+    border-color: #ccc;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
