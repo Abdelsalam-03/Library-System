@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">j
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../../assets/css/auth.css">
 </head>
+
 <body>
-    <h2>Welcome Back!</h2>
-    <form action="login.html">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" required>
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <br>
-        <input type="submit" value="Login">
-        <!-- Currently login is processed with links, validation will be added later -->
-        <br>
-        <a href="/pages/">Login as a user</a> 
-        <br>
-        <a href="/pages/admin/">Login as an admin</a>
-    </form>
+
+    <section>
+        <div class="wrapper">
+            <h2 class="heading">Welcome Back!</h2>
+            <form id="login_form">
+                <div class="item">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" required>
+                </div>
+                <div class="item">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <input type="submit" value="Login">
+                <p>Don't have an account? <a href="./signup.html">Sign up</a></p>
+            </form>
+        </div>
+    </section>
+    <script src="../../assets/js/auth.js" type="module"></script>
 </body>
+
 </html>
