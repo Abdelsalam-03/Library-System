@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html laneg = "en">
-    <head>
-         <meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
-    </head>
-    <body>
-        <h1> Welcome Back</h1>
-        <p1>please enter your credentials to signup:</p1>
-        <form>
-            <label for ="username"><strong>Username:</strong></label>
-            <input type ="text" name ="username" id = "username" required><br>
-            <label for = "password"><strong>Password:</strong></label>
-            <input type ="password" name ="password" id ="password" required><br>
-            <label for="confirm password"><strong>Confirm Password:</strong></label>
-            <input type = "password" name ="password" id ="password" required><br>
-            <label for="email"><strong>Email:</strong></label>
-            <input type = "text" name ="email" id = "email"><br>
-            
-            <label for ="isadmin">isadmin</label>
+<html laneg="en">
 
-            <input type = "checkbox" name = "isadmin"><br>
-             <input type ="submit" value = "Signup"><br>
-         <a href="/pages/">signup as a user</a> 
-        <br>
-        <a href="/pages/admin/">signup as an admin</a>
-            
-        </form>
-    </body>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../../assets/css/auth.css">
+</head>
+
+<body>
+    <section>
+        <div class="wrapper">
+            <h2 class="heading">Welcome!</h2>
+            <form id="signup_form">
+                <div class="item">
+                    <label for="username">User Name</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="item">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="item">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="item">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password">
+                </div>
+                <div class="one_line_item">
+                    <input type="checkbox" name="isadmin" id="isadmin">
+                    <label for="isadmin">Is Admin?</label>
+                </div>
+                <input type="submit" value="Sign Up">
+                <p>Already have an account? <a href="./login.html">Log in</a></p>
+            </form>
+        </div>
+    </section>
+    <script src="../../assets/js/auth.js" type="module"></script>
+</body>
 </html>

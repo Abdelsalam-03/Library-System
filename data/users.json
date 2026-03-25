@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Abdelsalam Abdelrahman",
+        "email": "abdonadir500@gmail.com",
+        "password": "abcd1234",
+        "is_admin": true
+    },
+    {
+        "id": 2,
+        "name": "Admin",
+        "email": "admin@gmail.com",
+        "password": "admin1234",
+        "is_admin": true
+    },
+    {
+        "id": 3,
+        "name": "User",
+        "email": "user@gmail.com",
+        "password": "user1234",
+        "is_admin": false
+    }
+]
