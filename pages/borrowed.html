@@ -4,68 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Borrowed Books</title>
-  <link rel="stylesheet" href="/assets/css/global.css">
 
-    <style>
-        h1 {
-            color: #333;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #ccc;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f4f4f4;
-        }
-
-        button {
-            padding: 6px 12px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #000000;
-        }
-    </style>
+ 
+  <link rel="stylesheet" href="borrowstyle.css">
+  
 </head>
-<body>
-    <header>
-        <a href="/" class="logo">
-            <img src="/assets/images/logo.png" alt="logo">
-        </a>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="borrowed.html">Borrowed Books</a></li>
-            </ul>
-            <button>Log out</button>
-        </nav>
-    </header>
+<body>
+
+<header>
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="add_book.html">Add Book</a></li>
+      <li><a href="customers.html">Customers</a></li>
+      <li><a href="../Authentication/profile.html">Profile</a></li>
+      <li><button>Log Out</button></li>
+    </ul>
+  </nav>
+</header>
 
 <section>
   <h1>Borrowed Books</h1>
+
   <table>
     <tr>
       <th>Title</th>
@@ -74,58 +36,45 @@
       <th>Due Date</th>
       <th>Actions</th>
     </tr>
+
     <tr>
       <td>Season of Migration to the North</td>
       <td>Tayeb Salih</td>
       <td>2026-03-10</td>
       <td>2026-03-20</td>
       <td>
-        <button onclick="returnBook('Season of Migration to the North')">Return</button>
-        <button onclick="renewBook('Season of Migration to the North')">Renew</button>
+        <button onclick="returnBook(this)">Return</button>
+        <button onclick="renewBook(this)">Renew</button>
       </td>
     </tr>
+
     <tr>
       <td>Atomic Habits</td>
       <td>James Clear</td>
       <td>2026-03-05</td>
       <td>2026-03-15</td>
       <td>
-        <button onclick="returnBook('Atomic Habits')">Return</button>
-        <button onclick="renewBook('Atomic Habits')">Renew</button>
+        <button onclick="returnBook(this)">Return</button>
+        <button onclick="renewBook(this)">Renew</button>
       </td>
     </tr>
+
     <tr>
-  <td>The Old Man and The Sea</td>
-  <td>Ernest Hemingway</td>
-  <td>2026-02-20</td>
-  <td>2026-03-01</td>
-  <td>
-    <a href="./view_book.html">View</a>
-    <button onclick="reborrowBook('The Old Man and The Sea')">Reborrow</button>
-  </td>
-</tr>
-    
+      <td>The Old Man and The Sea</td>
+      <td>Ernest Hemingway</td>
+      <td>2026-02-20</td>
+      <td>2026-03-01</td>
+      <td>
+        <button onclick="viewBook('The Old Man and The Sea')">View</button>
+        <button onclick="reborrowBook('The Old Man and The Sea')">Reborrow</button>
+      </td>
+    </tr>
+
   </table>
 </section>
 
-<script>
-function returnBook(title) {
-  alert(`Returning "${title}"`);
- 
-}
 
-function renewBook(title) {
-  alert(`Renewing "${title}" for another period`);
- 
-}
-function viewBook(title) {
-  alert(`Viewing details for "${title}"`);
-}
-
-function reborrowBook(title) {
-  alert(`Reborrowing "${title}"`);
-}
-</script>
+<script src="borrowscript.js"></script>
 
 </body>
 </html>
