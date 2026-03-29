@@ -5,84 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Book</title>
-      <link rel="stylesheet" href="/assets/css/global.css">
-
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/admin/view_book.css">
 </head>
 
 <body>
-  <header>
+    <header>
         <a href="/" class="logo">
             <img src="/assets/images/logo.png" alt="logo">
         </a>
 
         <nav>
             <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="view_books.html">View Books</a></li>
-        <li><a href="add_book.html">Add Book</a></li>
-        <li><a href="customers.html">Customers</a></li>
-      </ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="view_books.html">View Books</a></li>
+                <li><a href="add_book.html">Add Book</a></li>
+                <li><a href="customers.html">Customers</a></li>
+            </ul>
             <button>Log out</button>
         </nav>
     </header>
-    <section>
-        <div>
-            <h2>Book Page - Dune</h2>
-        </div>
-    </section>
-    <hr>
-    <section>
-        <div>
-            <h3>Book Details</h3>
-            <p>Id: <strong>1</strong></p>
-            <p>Title: <strong>Dune</strong></p>
-            <p>Author: <strong>Frank Herbert</strong></p>
-            <p>Total Copies: <strong>4</strong></p>
-            <p>Available Copies: <strong>1</strong></p>
-            <p>Description: <strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam eius nulla iste ad autem aperiam?</strong></p>
-        </div>
-    </section>
-    <section>
-        <h3>Borrow History</h3>
-        <div>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Customer Name</th>
-                        <th>Borrowed at</th>
-                        <th>Returned at</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ibraheem Adil</td>
-                        <td>3-11-2026</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Salah Salem</td>
-                        <td>3-11-2026</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Mohammed Ahmed</td>
-                        <td>3-11-2026</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Ali Kamal</td>
-                        <td>3-2-2026</td>
-                        <td>3-10-2026</td>
-                    </tr>
-                    <tr>
-                        <td>Adil Eltayeb</td>
-                        <td>1-5-2026</td>
-                        <td>2-2-2026</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <div class="information" id="information">
+    </div>
+    <script type="module" src="/assets/js/admin/view_book.js"></script>
 </body>
-
 </html>
