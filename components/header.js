@@ -5,7 +5,6 @@ fetchUser();
 async function fetchUser() {
   try {
     const user = await getUser();
-    console.log(user);
     addHeader(user);
   } catch (error) {
     console.log("unauthorized");
