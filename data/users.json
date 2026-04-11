@@ -19,5 +19,40 @@
         "email": "user@gmail.com",
         "password": "user1234",
         "is_admin": false
-    }
+    },
+    {
+    "id": 4,
+    "name": "Ahmed Hassan",
+    "email": "ahmed.hassan@example.com",
+    "password": "abcd1234",
+    "is_admin": false
+  },
+  {
+    "id": 5,
+    "name": "Sara Mohamed",
+    "email": "sara.mohamed@example.com",
+    "password": "abcd1234",
+    "is_admin": false
+  },
+  {
+    "id": 6,
+    "name": "Omar Khaled",
+    "email": "omar.khaled@example.com",
+    "password": "abcd1234",
+    "is_admin": false
+  },
+  {
+    "id": 7,
+    "name": "Mona Ali",
+    "email": "mona.ali@example.com",
+    "password": "abcd1234",
+    "is_admin": false
+  },
+  {
+    "id": 8,
+    "name": "Youssef Adel",
+    "email": "youssef.adel@example.com",
+    "password": "abcd1234",
+    "is_admin": false
+  }
 ]
