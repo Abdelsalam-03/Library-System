@@ -23,11 +23,12 @@ function addHeader(user) {
             ${
               user.is_admin
                 ? `
-                <li><a href="index.html">Home</a></li>
-                <li><a href="view_books.html">View Books</a></li>
-                <li><a href="add_book.html">Add Book</a></li>
-                <li><a href="customers.html">Customers</a></li> `
+                <li><a href="admin/index.html">Home</a></li>
+                <li><a href="admin/view_books.html">View Books</a></li>
+                <li><a href="admin/add_book.html">Add Book</a></li>
+                <li><a href="admin/customers.html">Customers</a></li> `
                 : `       
+                <li><a href="index.html">Home</a></li>
                 <li><a href="books.html">Books</a></li>
                 <li><a href="borrowed.html">Borrowed Books</a></li>
             `
