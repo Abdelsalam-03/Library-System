@@ -5,6 +5,33 @@ body {
   color: #2e2230;
 }
 
+<<<<<<< HEAD
+header {
+  background-color: var(--primary-color);
+  padding: 15px;
+}
+
+nav ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+=======
+>>>>>>> 2253f37a00490fbadaa304b2aea60543ef81adba
 section {
   padding: 20px;
 }
@@ -26,9 +53,9 @@ table {
 table button {
   padding: 8px 16px;
   margin-right: 5px;
-  border: 2px solid #740023;
+  border: 2px solid #dededf;
   border-radius: 15px;
-  background-color: #740023;
+  background-color: #2628a0;
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
@@ -39,7 +66,7 @@ table button {
 }
 
 th {
-  background-color: #740023;
+  background-color: var(--primary-color);
   color: rgb(255, 255, 255);
 }
 

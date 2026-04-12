@@ -1,72 +1,119 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="/assets/css/global.css" />
-
-    <style>
-      h1 {
-        color: #333;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-
-      table,
-      th,
-      td {
-        border: 1px solid #ccc;
-      }
-
-      th,
-      td {
-        padding: 10px;
-        text-align: left;
-      }
-
-      th {
-        background-color: #f4f4f4;
-      }
-
-      button {
-        padding: 6px 12px;
-        margin-right: 5px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #000000;
-      }
-    </style>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/HomePage.css">
+</head>
+<body>
     <header>
-      <a href="/" class="logo">
-        <img src="/assets/images/logo.png" alt="logo" />
-      </a>
-
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="books.html">Books</a></li>
-          <li><a href="borrowed.html">Borrowed Books</a></li>
-        </ul>
-        <button onclick="logout()">log out</button>
-      </nav>
+        <a href="/" class="logo">
+            <img src="/assets/images/logo.png" alt="logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="borrowed.html">Borrowed Books</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            </ul>
+            <button id="logout_btn">Log out</button>
+        </nav>
     </header>
-    <section>
-      <h1>Welcome to our library</h1>
-    </section>
-    <script type="module" src="/assets/js/auth.js"></script>
 
-  </body>
+    <section>
+        <div class="dash-header">
+            <div class="user-hero">
+                <div class="avatar" id="user_avatar">?</div>
+                <div>
+                    <h2 id="welcome_msg">Welcome back</h2>
+                    <p id="user_email" class="user-email"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-label">Currently borrowed</span>
+                <span class="metric-value" id="metric_borrowed">—</span>
+            </div>
+            <div class="metric-card warn">
+                <span class="metric-label">Due soon</span>
+                <span class="metric-value" id="metric_due">—</span>
+            </div>
+            <div class="metric-card danger">
+                <span class="metric-label">Overdue</span>
+                <span class="metric-value" id="metric_overdue">—</span>
+            </div>
+            <div class="metric-card info">
+                <span class="metric-label">Total borrowed ever</span>
+                <span class="metric-value" id="metric_total">—</span>
+            </div>
+        </div>
+
+        <div class="dash-grid">
+            <div class="dash-card wide">
+                <div class="card-head">
+                    <h3>Borrowed books</h3>
+                    <a href="borrowed.html" class="card-link">View all →</a>
+                </div>
+                <div class="table-wrap">
+                    <table id="dashboard_borrow_table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Due date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="borrow_tbody">
+                            <tr><td colspan="5" class="empty-row">Loading…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="card-head">
+                    <h3>Find a book</h3>
+                    <a href="books.html" class="card-link">Browse all →</a>
+                </div>
+                <div class="search-row">
+                    <input type="text" id="dash_search" placeholder="Search by title or author…">
+                    <button onclick="dashSearch()">Search</button>
+                </div>
+                <div id="dash_results_wrap" style="display:none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="dash_results_tbody"></tbody>
+                    </table>
+                </div>
+                <p id="dash_no_results" class="empty-text" style="display:none;">No books found.</p>
+            </div>
+
+            <div class="dash-card">
+                <div class="card-head">
+                    <h3>Recent activity</h3>
+                </div>
+                <ul class="activity-list" id="activity_list">
+                    <li class="activity-item empty-text">No recent activity.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="/assets/js/is_user.js"></script>
+    <script src="/assets/js/HomePage.js"></script>
+</body>
 </html>

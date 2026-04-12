@@ -17,3 +17,14 @@ export async function getBorrowRequests(params = {}) {
     console.error("Error fetching JSON:", error);
   }
 }
+
+export async function getLatestBorrowRequests(limit = 5) {
+  try {
+    const response = await fetch("/data/borrow_requests.json");
+    let data = await response.json();
+    data = data.slice(0, limit);
+    return { data: data };
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+  }
+}

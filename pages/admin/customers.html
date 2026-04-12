@@ -1,50 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+import { getCustomers } from "/services/admin/customers.js";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customers</title>
-    
-    <link rel="stylesheet" href="/assets/css/global.css">
-     <link rel="stylesheet" href="/assets/css/customers.css">
+const searchInput = document.getElementById("search");
+const searchBtn = document.querySelector(".search-button");
+const tableBody = document.querySelector("#customers_table tbody");
 
-</head>
+let filters = {};
 
-<body>
-    <script type="module" src="/components/header.js"></script>
-    <section>
-        <div>
-            <h1>Customers Page</h1>
-        </div>
-        <div class = "customers-count">
-            <p class = "customer-count-text" id="total" >Total customers: <span class="value"></span></p>
-        </div>
-    </section>
-    <section>
-        <div>
-            <div>
-                <input class = "search-input" type="text" id="search" placeholder="Search by customer name or email">
-                <input class = "search-button" type="submit" value="Search">
-            </div>
-        </div>
-        <div>
-            <table border="1" class = "customers-table" id="customers_table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Currently Borrowing</th>
-                        <th>Borrowed Books</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
+fetchCustomers(filters);
 
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <script type="module" src="/assets/js/admin/customers.js"></script>
-</body>
-</html>
+// ===== Search =====
+searchBtn.addEventListener("click", handleSearch);
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") handleSearch();
+});
+
+function handleSearch() {
+  const query = searchInput.value.trim();
+  if (query.length > 0) {
+    filters = { ...filters, query };
+  } else {
+    delete filters.query;
+  }
+  fetchCustomers(filters);
+}
+
+// ===== Fetch customers =====
+async function fetchCustomers(params = {}) {
+  try {
+    const response = await getCustomers(params);
+    fillTotal(response.data.length);
+    fillTable(response.data);
+  } catch (error) {
+    console.log("Customers error:", error);
+  }
+}
+
+// ===== Fill total count =====
+function fillTotal(count) {
+  const span = document.querySelector("#total .value");
+  if (span) span.textContent = count;
+}
+
+// ===== Fill table =====
+function fillTable(customers) {
+  if (!customers.length) {
+    tableBody.innerHTML = `<tr><td class="empty" colspan="5">No customers found</td></tr>`;
+    return;
+  }
+
+  let body = document.createDocumentFragment();
+  customers.forEach((customer) => {
+    const row = document.createElement("tr");
+    row.dataset.id = customer.id;
+    row.innerHTML = `
+      <td>${customer.name}</td>
+      <td>${customer.email}</td>
+      <td>${customer.currently_borrowing}</td>
+      <td>${customer.borrowed}</td>
+      <td class="actions">
+        <a href="/pages/admin/customer.html?customer=${customer.id}">Show</a>
+      </td>
+    `;
+    body.appendChild(row);
+  });
+
+  tableBody.innerHTML = "";
+  tableBody.appendChild(body);
+}
