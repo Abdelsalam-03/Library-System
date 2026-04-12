@@ -99,7 +99,7 @@ function fillBooksTable(books) {
     <td>${book.available}</td>
     <td class="price">$${book.price}</td>
     <td class="actions">
-      <a href="#">Edit</a>
+      <a href="/pages/admin/edit_book.html?book=${book.id}">Edit</a>  
       <button class="delete">Delete</button>
     </td>
   `;

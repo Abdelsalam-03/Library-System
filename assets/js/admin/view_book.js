@@ -29,7 +29,7 @@ function fillBookInformation(book) {
                 <p class="isbn">ISBN: ${book.ISBN}</p>
 
                 <div class="actions">
-                    <a href="./adit_book?id=${book.id}" class="edit-btn">Edit</a>
+                    <a href="/pages/admin/edit_book.html?book=${book.id}" class="edit-btn">Edit</a>
                     <button class="delete-btn">Delete</button>
                 </div>
             </div>
