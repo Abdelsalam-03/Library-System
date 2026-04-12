@@ -254,10 +254,10 @@ document.getElementById("dash_search").addEventListener("keydown", e => {
 });
 
 // ── Logout (mirrors auth.js pattern) ──────────────────────────────────────
-document.getElementById("logout_btn").addEventListener("click", () => {
-    localStorage.removeItem("user");
-    window.location.assign("/index.html");
-});
+// document.getElementById("logout_btn").addEventListener("click", () => {
+//     localStorage.removeItem("user");
+//     window.location.assign("/index.html");
+// });
 
 // ── Init ───────────────────────────────────────────────────────────────────
 renderUserHero();

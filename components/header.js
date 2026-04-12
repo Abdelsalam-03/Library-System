@@ -11,7 +11,8 @@ async function fetchUser() {
     const user = await getUser();
     addHeader(user);
   } catch (error) {
-    console.log("unauthorized");
+    console.log("unauthenticated");
+    window.location.assign("/index.html");
   }
 }
 
