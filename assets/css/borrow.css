@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #60162c;
+  background-color: var(--primary-color);
   padding: 15px;
 }
 
@@ -50,9 +50,9 @@ table {
 table button {
   padding: 8px 16px;
   margin-right: 5px;
-  border: 2px solid #740023;
+  border: 2px solid #dededf;
   border-radius: 15px;
-  background-color: #740023;
+  background-color: #2628a0;
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
@@ -63,7 +63,7 @@ table button {
 }
 
 th {
-  background-color: #740023;
+  background-color: var(--primary-color);
   color: rgb(255, 255, 255);
 }
 
