@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, rgb(116, 0, 35), #f3f4f6);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { 
+        background-position: 70% 100%; 
+    }
+    50% { 
+        background-position: 100% 100%; 
+    }
+    100% { 
+        background-position: 70% 100%; 
+    }
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease forwards;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #eee;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary {
+    background: white;
+    color: #333;
+}
+
+.primary:hover {
+    transform: scale(1.05);
+    background: #f1f1f1;
+}
+
+.secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.secondary:hover {
+    background: white;
+    color: #333;
+}
+
+.team-link {
+    color: #cdcdcd;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.team-link:hover {
+    color: white;
+    text-decoration: underline;
+}
