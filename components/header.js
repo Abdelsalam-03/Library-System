@@ -36,7 +36,7 @@ function addHeader(user) {
             }
                 <li><a href="/pages/profile.html">Profile</a></li>
             </ul>
-            <button>Log out</button>
+            <button onclick="logout()">log out</button>
         </nav>
     
     `;

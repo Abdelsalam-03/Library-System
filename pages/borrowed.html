@@ -1,102 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Borrowed Books</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Borrowed Books</title>
 
- 
-  <link rel="stylesheet" href="/assets/css/global.css">
-  <link rel="stylesheet" href="/assets/css/borrow.css">
-  
-</head>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/borrow.css" />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="../Authentication/profile.html">Profile</a></li>
+          <li><button onclick="logout()">log out</button></li>
+        </ul>
+      </nav>
+    </header>
 
-<header>
-  <nav>
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="../Authentication/profile.html">Profile</a></li>
-      <li><button>Log Out</button></li>
-    </ul>
-  </nav>
-</header>
+    <section>
+      <h1>Borrowed Books</h1>
 
-<section>
-  <h1>Borrowed Books</h1>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Borrowed On</th>
+          <th>Due Date</th>
+          <th>Actions</th>
+        </tr>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Borrowed On</th>
-      <th>Due Date</th>
-      <th>Actions</th>
-    </tr>
+        <tr>
+          <td>Season of Migration to the North</td>
+          <td>Tayeb Salih</td>
+          <td>2026-03-10</td>
+          <td>2026-03-20</td>
+          <td>
+            <button onclick="returnBook(this)">Return</button>
+            <button onclick="renewBook(this)">Renew</button>
+          </td>
+        </tr>
 
-    <tr>
-      <td>Season of Migration to the North</td>
-      <td>Tayeb Salih</td>
-      <td>2026-03-10</td>
-      <td>2026-03-20</td>
-      <td>
-        <button onclick="returnBook(this)">Return</button>
-        <button onclick="renewBook(this)">Renew</button>
-      </td>
-    </tr>
+        <tr>
+          <td>Atomic Habits</td>
+          <td>James Clear</td>
+          <td>2026-03-05</td>
+          <td>2026-03-15</td>
+          <td>
+            <button onclick="returnBook(this)">Return</button>
+            <button onclick="renewBook(this)">Renew</button>
+          </td>
+        </tr>
 
-    <tr>
-      <td>Atomic Habits</td>
-      <td>James Clear</td>
-      <td>2026-03-05</td>
-      <td>2026-03-15</td>
-      <td>
-        <button onclick="returnBook(this)">Return</button>
-        <button onclick="renewBook(this)">Renew</button>
-      </td>
-    </tr>
+        <tr>
+          <td>The Old Man and The Sea</td>
+          <td>Ernest Hemingway</td>
+          <td>2026-02-20</td>
+          <td>2026-03-01</td>
+          <td>
+            <button onclick="viewBook('The Old Man and The Sea')">View</button>
+            <button onclick="reborrowBook('The Old Man and The Sea')">
+              Reborrow
+            </button>
+          </td>
+        </tr>
+      </table>
+    </section>
 
-    <tr>
-      <td>The Old Man and The Sea</td>
-      <td>Ernest Hemingway</td>
-      <td>2026-02-20</td>
-      <td>2026-03-01</td>
-      <td>
-        <button onclick="viewBook('The Old Man and The Sea')">View</button>
-        <button onclick="reborrowBook('The Old Man and The Sea')">Reborrow</button>
-      </td>
-    </tr>
+    <div id="ratingModal" class="rating-modal hidden">
+      <div class="rating-dialog">
+        <button
+          id="closeRatingModal"
+          class="close-modal"
+          type="button"
+          aria-label="Close rating modal"
+        >
+          &times;
+        </button>
+        <h2>Rate This Book</h2>
+        <p id="ratingBookName" class="rating-book-name"></p>
 
-  </table>
-</section>
+        <div class="stars-group" id="starsGroup" aria-label="Book rating">
+          <button type="button" class="star-btn" data-value="1">&#9733;</button>
+          <button type="button" class="star-btn" data-value="2">&#9733;</button>
+          <button type="button" class="star-btn" data-value="3">&#9733;</button>
+          <button type="button" class="star-btn" data-value="4">&#9733;</button>
+          <button type="button" class="star-btn" data-value="5">&#9733;</button>
+        </div>
 
-<div id="ratingModal" class="rating-modal hidden">
-  <div class="rating-dialog">
-    <button id="closeRatingModal" class="close-modal" type="button" aria-label="Close rating modal">&times;</button>
-    <h2>Rate This Book</h2>
-    <p id="ratingBookName" class="rating-book-name"></p>
+        <textarea
+          id="ratingComment"
+          rows="4"
+          placeholder="Write a short note about the book (optional)"
+        ></textarea>
 
-    <div class="stars-group" id="starsGroup" aria-label="Book rating">
-      <button type="button" class="star-btn" data-value="1">&#9733;</button>
-      <button type="button" class="star-btn" data-value="2">&#9733;</button>
-      <button type="button" class="star-btn" data-value="3">&#9733;</button>
-      <button type="button" class="star-btn" data-value="4">&#9733;</button>
-      <button type="button" class="star-btn" data-value="5">&#9733;</button>
+        <div class="modal-actions">
+          <button id="cancelRating" type="button" class="secondary-btn">
+            Cancel
+          </button>
+          <button id="submitRating" type="button">
+            Submit Rating & Return
+          </button>
+        </div>
+      </div>
     </div>
 
-    <textarea id="ratingComment" rows="4" placeholder="Write a short note about the book (optional)"></textarea>
+    <script src="/assets/js/borrow.js"></script>
+    <script type="module" src="/assets/js/auth.js"></script>
 
-    <div class="modal-actions">
-      <button id="cancelRating" type="button" class="secondary-btn">Cancel</button>
-      <button id="submitRating" type="button">Submit Rating & Return</button>
-    </div>
-  </div>
-</div>
-
-<script src="/assets/js/borrow.js"></script>
-
-</body>
+  </body>
 </html>
-
