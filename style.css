@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-45deg, rgb(116, 0, 35), #f3f4f6);
+    background: linear-gradient(-45deg, #002147, #f3f4f6);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
 }

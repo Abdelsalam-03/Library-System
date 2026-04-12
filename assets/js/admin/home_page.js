@@ -15,15 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Logout confirmation
-  const logoutBtn = document.querySelector("header nav button");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      const confirmed = confirm("Are you sure you want to log out?");
-      if (confirmed) {
-        window.location.href = "login.html";
-      }
-    });
-  }
+  // const logoutBtn = document.querySelector("header nav button");
+  // if (logoutBtn) {
+  //   logoutBtn.addEventListener("click", () => {
+  //     const confirmed = confirm("Are you sure you want to log out?");
+  //     if (confirmed) {
+  //       window.location.href = "login.html";
+  //     }
+  //   });
+  // }
 
   // Fetch real data from services
   fetchBooksStats();

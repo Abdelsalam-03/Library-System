@@ -45,7 +45,7 @@ function fillRequestsTable(requests) {
     const row = document.createElement("tr");
     row.dataset.id = request.id;
     row.innerHTML = `
-    <td><a href="/pages/admin/customer.html?id=${request.user_id}">${request.user_name}</a></td>
+    <td><a href="/pages/admin/customer.html?customer=${request.user_id}">${request.user_name}</a></td>
     <td class="title"><a href="/pages/admin/view_book.html?id=${request.book_id}">${request.book_name}</a></td>
     <td>${request.request_date}</td>
     <td>${request.available_copies}</td>

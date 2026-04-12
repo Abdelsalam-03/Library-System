@@ -74,7 +74,9 @@
 }
 
 .stat-card.highlight {
-  background: linear-gradient(135deg, rgb(187 4 59), var(--primary-color));
+  background: linear-gradient(135deg,
+  color-mix(in srgb, var(--primary-color), var(--background-color) 20%),
+  var(--primary-color));
   color: #fff;
 }
 
