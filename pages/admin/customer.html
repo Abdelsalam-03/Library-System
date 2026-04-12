@@ -4,72 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show Customer</title>
-    <link rel="stylesheet" href="/assets/css/global.css" />
-  </head>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/admin/customer.css">
 
-  <body>
-    <header>
-      <a href="/" class="logo">
-        <img src="/assets/images/logo.png" alt="logo" />
-      </a>
+</head>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="view_books.html">View Books</a></li>
-          <li><a href="add_book.html">Add Book</a></li>
-          <li><a href="customers.html">Customers</a></li>
-        </ul>
-        <button onclick="logout()">log out</button>
-      </nav>
-    </header>
-    <section>
-      <div>
-        <h1>Customer Page - Mohammed Ali</h1>
-      </div>
-    </section>
-    <hr />
-    <section>
-      <div>
-        <h3>Customer Information</h3>
-        <p>Id: <strong>1</strong></p>
-        <p>Name: <strong>Mohammed Ali</strong></p>
-        <p>Email: <strong>mohammed@gmail.com</strong></p>
-        <p>Borrowed Books: <strong>3</strong></p>
-        <p>Books Currently on Loan: <strong>1</strong></p>
-      </div>
-    </section>
-    <section>
-      <h3>Borrow History</h3>
-      <div>
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Book Name</th>
-              <th>Borrowed at</th>
-              <th>Returned at</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Atomic Habits</td>
-              <td>3-11-2026</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Never Split the Differences</td>
-              <td>3-2-2026</td>
-              <td>3-10-2026</td>
-            </tr>
-            <tr>
-              <td>The Whole Brained Child</td>
-              <td>1-5-2026</td>
-              <td>2-2-2026</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<body>
+    <script type="module" src="/components/header.js"></script>
+
+    <section class="customer-page" id="customer-page"></section>
+    <script type="module" src="/assets/js/admin/customer.js"></script>
     <script type="module" src="/assets/js/auth.js"></script>
-  </body>
+</body>
+
 </html>

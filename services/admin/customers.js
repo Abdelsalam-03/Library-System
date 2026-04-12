@@ -53,7 +53,19 @@ export async function getCustomer(id) {
       }
     });
     if (found) {
-      return { data: customer };
+      let historyRequest = await fetch("/data/borrow_history.json");
+    let history = await historyRequest.json();
+    let totalBorrowed = 0;
+    let currentlyBorrowing = 0;
+    history.forEach((element) => {
+      if (element.user.id == id) {
+        ++totalBorrowed;
+        if (element.returned_at == null) {
+          ++currentlyBorrowing;
+        }
+      }
+    });
+      return { data: {...customer, borrowed: totalBorrowed, currently_borrowing: currentlyBorrowing} };
     } else {
       throw {
         message: "Not Found",
