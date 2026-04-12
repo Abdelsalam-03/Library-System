@@ -113,11 +113,13 @@ function fillHistoryTable(history) {
   let tableWrapper = document.createElement("div");
   informationCard.classList.add("customer-card");
   tableWrapper.classList.add("history-table-container");
-  informationCard.innerHTML = `<h3>Customer Information</h3>`;
+  informationCard.innerHTML = `<h3>Borrow History</h3>`;
   tableWrapper.appendChild(table);
   informationCard.appendChild(tableWrapper);
   container.appendChild(informationCard);
-  page.append(container);
+  if (history.length > 0) {
+    page.append(container);
+  }
 }
 
 
