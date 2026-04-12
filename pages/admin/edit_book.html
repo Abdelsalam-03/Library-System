@@ -1,70 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Book</title>
-    <link rel="stylesheet" href="/assets/css/global.css" />
-  </head>
-  <body>
-    <header>
-      <a href="/" class="logo">
-        <img src="/assets/images/logo.png" alt="logo" />
-      </a>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="view_books.html">View Books</a></li>
-          <li><a href="add_book.html">Add Book</a></li>
-          <li><a href="customers.html">Customers</a></li>
-        </ul>
-        <button onclick="logout()">log out</button>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Book</title>
 
-    <section>
-      <h2>Edit Book - Atomic Habits</h2>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/admin/add_book.css">
+</head>
 
-      <form>
-        <label>Title:</label><br />
-        <input type="text" name="title" value="Atomic Habits" /><br /><br />
+<body>
 
-        <label>Author:</label><br />
-        <input type="text" name="author" value="James Clear	" /><br /><br />
+  <script type="module" src="/components/header.js"></script>
 
-        <label>Genre:</label><br />
-        <select name="genre">
-          <option>Fiction</option>
-          <option>Non-Fiction</option>
-          <option>Sci-Fi</option>
-          <option selected>Self-Help</option>
-          <option>Finance</option>
-          <option>Memoir</option>
-          <option>History</option>
-          <option>Science</option>
-          <option>Biography</option></select
-        ><br /><br />
+  <section>
+    <h2>Edit Book</h2>
 
-        <label>ISBN:</label><br />
-        <input type="text" name="isbn" value="978-0735211292" /><br /><br />
+    <form id="bookForm">
 
-        <label>Publication Year:</label><br />
-        <input type="number" name="year" value="2018" /><br /><br />
+      <label>Title:</label>
+      <input required type="text" name="title">
 
-        <label>Number of Copies:</label><br />
-        <input type="number" name="copies" value="5" /><br /><br />
+      <label>Author:</label>
+      <input required type="text" name="author">
 
-        <label>Description:</label><br />
-        <textarea name="description" rows="4" cols="40">
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, ad? Officiis praesentium voluptas unde expedita, doloribus iusto dolorem totam accusamus.</textarea
-        ><br /><br />
+      <label>Genre:</label>
+      <select name="genre">
+        <option value="">Select Genre</option>
+        <option>Fiction</option>
+        <option>Non-Fiction</option>
+        <option>Sci-Fi</option>
+        <option>Self-Help</option>
+        <option>Finance</option>
+        <option>Memoir</option>
+        <option>History</option>
+        <option>Science</option>
+        <option>Biography</option>
+      </select>
 
-        <button type="reset">Clear</button>
-        <button type="submit">Savek</button>
-      </form>
-    </section>
-    <script type="module" src="/assets/js/auth.js"></script>
+      <label>ISBN:</label>
+      <input required type="text" name="isbn">
 
-  </body>
+      <label>Publication Year:</label>
+      <input required type="number" name="year">
+
+      <label>Price ($):</label>
+      <input required type="number" name="price" step="0.01">
+
+      <label>Number of Copies:</label>
+      <input required type="number" name="copies">
+
+      <label>Book Image:</label>
+      <input type="file" name="image" accept="image/*">
+
+      <!-- Image preview -->
+      <img id="preview" style="width:100px; margin:10px 0; display:none; border-radius:8px;" />
+
+      <label>Description:</label>
+      <textarea name="description" rows="4"></textarea>
+
+      <button type="reset">Reset</button>
+      <button type="submit">Update Book</button>
+    </form>
+  </section>
+
+  <script type="module" src="/assets/js/admin/edit_book.js"></script>
+
+</body>
 </html>
