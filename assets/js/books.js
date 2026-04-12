@@ -1,27 +1,9 @@
-let books = [
-    {
-        title: "Clean Code",
-        image: "../assets/images/book-cover.avif",
-        author: "Robert C. Martin",
-        category: "Programming",
-        status: "Available",
-    },
-    {
-        title: "The Hobbit",
-        image: "../assets/images/download.jpg",
-        author: "J.R.R. Tolkien",
-        category: "Fantasy",
-        status: "Available",
-    },
-    {
-        title: "A Brief History of Time",
-        image: "../assets/images/images.webp",
-        author: "Stephen Hawking",
-        category: "Science",
-        status: "Unavailable",
-    }
-];
+let books = [];
 
+async function loadBooks(){
+    const response = await fetch("/data/books.json");
+    books = await response.json();
+}
 
 
 function displayBooks(bookList) {
@@ -33,10 +15,10 @@ function displayBooks(bookList) {
         table.innerHTML += `
         <tr>
             <td>${book.title}</td>
-            <td><img src="${book.image}" width="50"></td>
+            <td><img src="https://covers.openlibrary.org/b/isbn/${book.ISBN}-L.jpg" width="50"></td>
             <td>${book.author}</td>
-            <td>${book.category}</td>
-            <td>${book.status}</td>
+            <td>${book.genre}</td>
+            <td>${book.available? "Available" : "Unavailable"}</td>
             <td>
                 <a href="view_book.html">Select</a>
                 <button>Borrow</button>
@@ -64,6 +46,8 @@ function filterBooks() {
 
     displayBooks(filtered);
 }
-window.onload = function () {
+
+window.onload = async function () {
+    await loadBooks();
     displayBooks(books);
 };

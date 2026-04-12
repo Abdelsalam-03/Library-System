@@ -1,76 +1,81 @@
-<!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset ="UTF-8">
-        <title>Books</title>
-        <link rel="stylesheet" href="/assets/css/global.css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Books</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
 
     <style>
-        h1 {
-            color: #333;
-        }
+      h1 {
+        color: #333;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
 
-        table,
-        th,
-        td {
-            border: 1px solid #ccc;
-        }
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
 
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-        }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
 
-        th {
-            background-color: #f4f4f4;
-        }
+      th {
+        background-color: #f4f4f4;
+      }
 
-        button {
-            padding: 6px 12px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-        }
+      button {
+        padding: 6px 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #000000;
-        }
+      button:hover {
+        background-color: #000000;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="/" class="logo">
-            <img src="/assets/images/logo.png" alt="logo">
-        </a>
+      <a href="/" class="logo">
+        <img src="/assets/images/logo.png" alt="logo" />
+      </a>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="borrowed.html">Borrowed Books</a></li>
-            </ul>
-            <button>Log out</button>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="borrowed.html">Borrowed Books</a></li>
+        </ul>
+        <button onclick="logout()">log out</button>
+      </nav>
     </header>
 
     <section>
-<h2>Search for books</h2>
+      <h2>Search for books</h2>
 
       <label>Search</label>
-      <input type ="text"  id ="searchInput"placeholder="search by title or author...">
+      <input
+        type="text"
+        onkeyup="filterBooks()"
+        id="searchInput"
+        placeholder="search by title or author..."
+      />
 
       <label>Category:</label>
-      <select id ="categoryFilter">
+      <select onchange="filterBooks()" id="categoryFilter">
         <option>All</option>
         <option>Fiction</option>
         <option>Science</option>
@@ -80,24 +85,22 @@
         <option>Programming</option>
       </select>
 
-      <button onclick="filterBooks()">Search</button><br>
-      <table border ="2">
+      <button onclick="filterBooks()">Search</button><br />
+      <table border="2">
         <thead>
-        <tr>
+          <tr>
             <th>Title</th>
             <th>image</th>
             <th>Author</th>
             <th>Category</th>
             <th>Status</th>
             <th>Action</th>
-        </tr>
+          </tr>
         </thead>
         <tbody id="booksTable"></tbody>
       </table>
-
-
     </section>
-<script src="../assets/js/books.js"></script>
-    </body>
-    
+    <script src="../assets/js/books.js"></script>
+    <script type="module" src="/assets/js/auth.js"></script>
+  </body>
 </html>

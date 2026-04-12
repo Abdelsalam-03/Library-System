@@ -72,3 +72,7 @@ export async function getUser() {
   }
   return JSON.parse(loggedUser);
 }
+
+export async function destroySession() {
+  localStorage.removeItem("user");
+}

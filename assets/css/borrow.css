@@ -5,6 +5,7 @@ body {
   color: #2e2230;
 }
 
+<<<<<<< HEAD
 header {
   background-color: var(--primary-color);
   padding: 15px;
@@ -29,6 +30,8 @@ nav a:hover {
   text-decoration: underline;
 }
 
+=======
+>>>>>>> 2253f37a00490fbadaa304b2aea60543ef81adba
 section {
   padding: 20px;
 }
@@ -97,13 +100,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-header button {
-  background-color: rgb(255, 255, 255);
-}
 
-header button:hover {
-  background-color: #740023;
-}
 
 .rating-modal {
   position: fixed;

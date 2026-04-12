@@ -1,11 +1,24 @@
+import { destroySession } from "/services/auth.js";
 import { getUser } from "/services/auth.js";
 
-fetchUser();
+await fetchUser();
+
+const logoutButton = document.getElementById("logout-button");
+logoutButton.addEventListener("click", logout);
 
 async function fetchUser() {
   try {
     const user = await getUser();
     addHeader(user);
+  } catch (error) {
+    console.log("unauthorized");
+  }
+}
+
+async function logout() {
+  try {
+    await destroySession();
+    window.location.assign("/index.html");
   } catch (error) {
     console.log("unauthorized");
   }
@@ -36,7 +49,7 @@ function addHeader(user) {
             }
                 <li><a href="/pages/profile.html">Profile</a></li>
             </ul>
-            <button>Log out</button>
+            <button id="logout-button" onclick="logout()">log out</button>
         </nav>
     
     `;

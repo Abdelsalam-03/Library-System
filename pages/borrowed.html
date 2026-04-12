@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,17 +12,7 @@
 </head>
 
 <body>
-
-<header>
-  <nav>
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="../Authentication/profile.html">Profile</a></li>
-      <li><button>Log Out</button></li>
-    </ul>
-  </nav>
-</header>
+<script type="module" src="/components/header.js"></script>
 
 <section>
   <h1>Borrowed Books</h1>
@@ -86,17 +76,8 @@
       <button type="button" class="star-btn" data-value="5">&#9733;</button>
     </div>
 
-    <textarea id="ratingComment" rows="4" placeholder="Write a short note about the book (optional)"></textarea>
+    <script src="/assets/js/borrow.js"></script>
+    <script type="module" src="/assets/js/auth.js"></script>
 
-    <div class="modal-actions">
-      <button id="cancelRating" type="button" class="secondary-btn">Cancel</button>
-      <button id="submitRating" type="button">Submit Rating & Return</button>
-    </div>
-  </div>
-</div>
-
-<script src="/assets/js/borrow.js"></script>
-
-</body>
+  </body>
 </html>
-
