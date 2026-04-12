@@ -132,18 +132,6 @@
     "description": "A dystopian novel depicting a technologically advanced society driven by pleasure, control, and conditioning."
   },
   {
-    "id": 12,
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "genre": "Classic",
-    "ISBN": "9780141439518",
-    "year": 1813,
-    "copies": 10,
-    "available": 8,
-    "price": 11.99,
-    "description": "A romantic classic exploring themes of love, class, and misunderstandings in 19th-century England."
-  },
-  {
     "id": 13,
     "title": "Harry Potter and the Sorcerer's Stone",
     "author": "J.K. Rowling",
