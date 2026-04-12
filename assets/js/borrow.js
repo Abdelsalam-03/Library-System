@@ -137,6 +137,24 @@ ratingModal.addEventListener("click", (event) => {
   }
 });
 
+
+function handleBorrow(bookId){
+  const borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+
+  if(borrowedBooks.includes(bookId)){
+    alert("You have already borrowed this book!");
+    return;
+  }
+  const confirmation = confirm("Are you sure borrowing this book?");
+  
+  if(confirmation){
+    borrowedBooks.push(bookId);
+    localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+    window.location.reload();
+  }
+} 
+
 window.onload = () => {
   highlightOverdue();
 };
