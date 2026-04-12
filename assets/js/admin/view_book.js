@@ -5,9 +5,9 @@ const params = new URLSearchParams(window.location.search);
 const ID = params.get("id");
 
 
-fetchBooks();
+await fetchBook();
 
-async function fetchBooks() {
+async function fetchBook() {
   try {
     let response = await getBook(ID);
     fillBookInformation(response.data);
@@ -15,6 +15,7 @@ async function fetchBooks() {
     console.log(error);
   }
 }
+
 function fillBookInformation(book) {
   let container = document.getElementById("information");
 

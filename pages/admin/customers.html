@@ -12,41 +12,26 @@
 </head>
 
 <body>
-  <header>
-        <a href="/" class="logo">
-            <img src="/assets/images/logo.png" alt="logo">
-        </a>
-
-        <nav>
-            <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="view_books.html">View Books</a></li>
-        <li><a href="add_book.html">Add Book</a></li>
-        <li><a href="customers.html">Customers</a></li>
-      </ul>
-            <button>Log out</button>
-        </nav>
-    </header>
+    <script type="module" src="/components/header.js"></script>
     <section>
         <div>
             <h1>Customers Page</h1>
         </div>
         <div class = "customers-count">
-            <p class = "customer-count-text" >Total customers: 53</p>
+            <p class = "customer-count-text" id="total" >Total customers: <span class="value"></span></p>
         </div>
     </section>
     <section>
         <div>
-            <form action="">
-                <input class = "search-input" type="text" placeholder="Search by customer name or email">
+            <div>
+                <input class = "search-input" type="text" id="search" placeholder="Search by customer name or email">
                 <input class = "search-button" type="submit" value="Search">
-            </form>
+            </div>
         </div>
         <div>
-            <table border="1" class = "customers-table">
+            <table border="1" class = "customers-table" id="customers_table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Currently Borrowing</th>
@@ -55,41 +40,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mohammed Ahmed</td>
-                        <td>mohammed@gmail.com</td>
-                        <td>0</td>
-                        <td>2</td>
-                        <td><a href="customer.html?customer=1">Show</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ali Atef</td>
-                        <td>Ali@gmail.com</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td><a href="customer.html?customer=2">Show</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Mustafa</td>
-                        <td>mustafs@gmail.com</td>
-                        <td>3</td>
-                        <td>10</td>
-                        <td><a href="customer.html?customer=3">Show</a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Mahmoud Omer</td>
-                        <td>mahmoud@gmail.com</td>
-                        <td>1</td>
-                        <td>4</td>
-                        <td><a href="customer.html?customer=4">Show</a></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
     </section>
+    <script type="module" src="/assets/js/admin/customers.js"></script>
 </body>
 </html>
