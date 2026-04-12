@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Library Home</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Welcome to Our Library</h1>
-    <h3>Already have an account? <a href="/pages/auth/login.html">Log in</a></h3>
-    <h3>Didn't have an account? <a href="/pages/auth/signup.html">Sign up</a></h3>
 
-    <a href="pages/team-info.html">
-        Team Information
-    </a>
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to Our Library</h1>
+            <p class="subtitle">Explore knowledge, borrow books, and manage your reading journey.</p>
+
+            <div class="actions">
+                <a href="/pages/auth/login.html" class="btn primary">Log in</a>
+                <a href="/pages/auth/signup.html" class="btn secondary">Sign up</a>
+            </div>
+
+            <a href="/pages/team-info.html" class="team-link">Team Information</a>
+        </div>
+    </div>
+
 </body>
 </html>
