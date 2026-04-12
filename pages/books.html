@@ -69,12 +69,13 @@
       <label>Search</label>
       <input
         type="text"
+        onkeyup="filterBooks()"
         id="searchInput"
         placeholder="search by title or author..."
       />
 
       <label>Category:</label>
-      <select id="categoryFilter">
+      <select onchange="filterBooks()" id="categoryFilter">
         <option>All</option>
         <option>Fiction</option>
         <option>Science</option>
