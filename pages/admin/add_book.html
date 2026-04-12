@@ -1,70 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add New Book</title>
-  <link rel="stylesheet" href="/assets/css/addNewBook.css">
   <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/admin/add_book.css">
 
 </head>
+
 <body>
+  <script type="module" src="/components/header.js"></script>
+  <section>
+    <h2>Add New Book</h2>
 
-  <header>
-        <a href="/" class="logo">
-            <img src="/assets/images/logo.png" alt="logo">
-        </a>
+    <form id="bookForm">
 
-        <nav>
-            <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="view_books.html">View Books</a></li>
-        <li><a href="add_book.html">Add Book</a></li>
-        <li><a href="customers.html">Customers</a></li>
-      </ul>
-            <button>Log out</button>
-        </nav>
-    </header>
+      <label>Title:</label>
+      <input required type="text" name="title">
 
-    <section>
-  <h2>Add New Book</h2>
+      <label>Author:</label>
+      <input required type="text" name="author">
 
-  <form>
-    <label>Title:</label><br>
-    <input type="text" name="title"><br><br>
+      <label>Genre:</label>
+      <select name="genre">
+        <option value="">Select Genre</option>
+        <option>Fiction</option>
+        <option>Non-Fiction</option>
+        <option>Sci-Fi</option>
+        <option>Self-Help</option>
+        <option>Finance</option>
+        <option>Memoir</option>
+        <option>History</option>
+        <option>Science</option>
+        <option>Biography</option>
+      </select>
 
-    <label>Author:</label><br>
-    <input type="text" name="author"><br><br>
+      <label>ISBN:</label>
+      <input required type="text" name="isbn">
 
-    <label>Genre:</label><br>
-    <select name="genre">
-      <option>Fiction</option>
-      <option>Non-Fiction</option>
-      <option>Sci-Fi</option>
-      <option>Self-Help</option>
-      <option>Finance</option>
-      <option>Memoir</option>
-      <option>History</option>
-      <option>Science</option>
-      <option>Biography</option>
-    </select><br><br>
+      <label>Publication Year:</label>
+      <input required type="number" name="year">
 
-    <label>ISBN:</label><br>
-    <input type="text" name="isbn"><br><br>
+      <label>Price ($):</label>
+      <input required type="number" name="price" step="0.01">
 
-    <label>Publication Year:</label><br>
-    <input type="number" name="year"><br><br>
+      <label>Number of Copies:</label>
+      <input required type="number" name="copies">
 
-    <label>Number of Copies:</label><br>
-    <input type="number" name="copies"><br><br>
+      <label>Book Image:</label>
+      <input required type="file" name="image" accept="image/*">
 
-    <label>Description:</label><br>
-    <textarea name="description" rows="4" cols="40"></textarea><br><br>
+      <label>Description:</label>
+      <textarea name="description" rows="4"></textarea>
 
-    <button type="reset">Clear</button>
-    <button type="submit">Add Book</button>
-  </form>
+      <button type="reset">Clear</button>
+      <button type="submit">Add Book</button>
+    </form>
   </section>
-
+  <script type="module" src="/assets/js/admin/add_book.js"></script>
 </body>
+
 </html>
