@@ -25,24 +25,27 @@ booksTableBody.addEventListener("click", (e) => {
 
 // searchField.addEventListener("change", handleSearch);
 searchField.addEventListener("input", debounce(handleSearch, 300));
-genreField.addEventListener("change", () => updateFilters({genre: genreField.value}));
-statusField.addEventListener("change", () => updateFilters({status: statusField.value}));
+genreField.addEventListener("change", () =>
+  updateFilters({ genre: genreField.value }),
+);
+statusField.addEventListener("change", () =>
+  updateFilters({ status: statusField.value }),
+);
 
 function updateFilters(newValue) {
-  filters = {...filters, ...newValue};
+  filters = { ...filters, ...newValue };
   fetchBooks(filters);
 }
 
 function handleSearch() {
   let query = searchField.value.trim();
   if (query.length > 0) {
-    filters = {...filters, query: query}
+    filters = { ...filters, query: query };
     fetchBooks(filters);
   } else {
     fetchBooks();
   }
 }
-
 
 async function fetchBooks(params = {}) {
   try {
@@ -63,7 +66,7 @@ async function fetchBooksStats() {
 }
 
 async function fetchGenres() {
-    try {
+  try {
     let response = await getGenres();
     fillGenresOptions(response.data);
   } catch (error) {
@@ -122,10 +125,10 @@ function fillGenresOptions(genres) {
   let content = `
     <option value="all">All Genres</option>
   `;
-  genres.forEach(genre => {
+  genres.forEach((genre) => {
     content += `
     <option value="${genre.name}">${genre.name}</option>
-    `
+    `;
   });
   genreField.innerHTML = content;
 }
@@ -141,7 +144,7 @@ function debounce(callback, delay) {
   };
 }
 
-function clearFilters(){
+function clearFilters() {
   console.log("Clearing");
   fetchBooks({});
   // searchField.

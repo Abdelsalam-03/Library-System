@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+</head>
+
+<body>
+    <script type="module" src="/components/header.js"></script>
+    <section>
+        <h3 class="title">Profile</h3>
+        <div class="component">
+            <div class="head">
+                <h4>Personal Information</h4>
+                <p>Update your name</p>
+            </div>
+            <form id="name_form">
+                <div class="item">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="actions">
+                    <button type="button" id="reset_name">Reset</button>
+                    <button type="submit" class="submit">Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="component">
+            <div class="head">
+                <h4>Password</h4>
+                <p>Change Password</p>
+            </div>
+            <form id="password_form">
+                <div class="item">
+                    <label for="password">Old Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="item">
+                    <label for="new_password">New Password</label>
+                    <input type="password" name="new_password" id="new_password">
+                </div>
+                <div class="item">
+                    <label for="password_confirmation">Confirm Password</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation">
+                </div>
+                <div class="actions">
+                    <button type="reset">Clear</button>
+                    <button type="submit" class="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script type="module" src="/assets/js/profile.js"></script>
+</body>
+
+</html>

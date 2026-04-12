@@ -80,9 +80,10 @@ section{
     margin: 0;
 }
 
-.wrapper .error{
+.wrapper p.error{
     background-color: #ff454556;
     padding: 0.5rem;
     border-left: 2px solid #ff4545;
     color: #4e4e4e;
+    margin: 0;
 }

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 4,
+    "user_id": 7,
+    "user_name": "Mona Ali",
+    "book_id": 8,
+    "book_name": "Sapiens",
+    "request_date": "2026-04-11",
+    "available_copies": 2,
+    "status": "pending"
+  },
+  {
+    "id": 1,
+    "user_id": 4,
+    "user_name": "Ahmed Hassan",
+    "book_id": 1,
+    "book_name": "The Silent Patient",
+    "request_date": "2026-04-10",
+    "available_copies": 3,
+    "status": "pending"
+  },
+  {
+    "id": 2,
+    "user_id": 5,
+    "user_name": "Sara Mohamed",
+    "book_id": 6,
+    "book_name": "Clean Code",
+    "request_date": "2026-04-09",
+    "available_copies": 0,
+    "status": "rejected"
+  },
+  {
+    "id": 3,
+    "user_id": 6,
+    "user_name": "Omar Khaled",
+    "book_id": 3,
+    "book_name": "1984",
+    "request_date": "2026-04-08",
+    "available_copies": 5,
+    "status": "approved"
+  },
+  {
+    "id": 5,
+    "user_id": 8,
+    "user_name": "Youssef Adel",
+    "book_id": 2,
+    "book_name": "Atomic Habits",
+    "request_date": "2026-04-07",
+    "available_copies": 4,
+    "status": "approved"
+  },
+  {
+    "id": 6,
+    "user_id": 4,
+    "user_name": "Ahmed Hassan",
+    "book_id": 14,
+    "book_name": "The Pragmatic Programmer",
+    "request_date": "2026-04-06",
+    "available_copies": 1,
+    "status": "pending"
+  },
+  {
+    "id": 7,
+    "user_id": 5,
+    "user_name": "Sara Mohamed",
+    "book_id": 10,
+    "book_name": "The Power of Habit",
+    "request_date": "2026-04-05",
+    "available_copies": 0,
+    "status": "rejected"
+  }
+]
