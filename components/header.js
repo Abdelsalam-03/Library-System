@@ -49,7 +49,7 @@ function addHeader(user) {
             }
                 <li><a href="/pages/profile.html">Profile</a></li>
             </ul>
-            <button id="logout-button">Log out</button>
+            <button id="logout-button" onclick="logout()">log out</button>
         </nav>
     
     `;
