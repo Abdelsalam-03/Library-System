@@ -64,6 +64,7 @@ function filterBooks() {
 
     displayBooks(filtered);
 }
+
 window.onload = function () {
     displayBooks(books);
 };

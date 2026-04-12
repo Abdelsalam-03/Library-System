@@ -1,121 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Title - Author</title>
-    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/global.css" />
 
     <style>
-        .container{
-            display: flex;
-            flex-direction: column;
-            align-items: center ;
-            max-width: 100vw;
-            min-height: 100vh;
-        }
-        .book-details{
-            display: flex;
-            gap: 20px;
-        }
-        .details p{
-            color: rgb(177, 0, 59);
-        }
-        .details span{
-            color: rgb(0, 0, 69);
-            font-weight: bold;
-        }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100vw;
+        min-height: 100vh;
+      }
+      .book-details {
+        display: flex;
+        gap: 20px;
+      }
+      .details p {
+        color: rgb(177, 0, 59);
+      }
+      .details span {
+        color: rgb(0, 0, 69);
+        font-weight: bold;
+      }
 
-        .details button{
-            background-color: rgb(0, 0, 94);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
+      .details button {
+        background-color: rgb(0, 0, 94);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
 
-        .details button:hover{
-            background-color: rgb(0, 0, 125);
-        }
-        .book-cover{
-            width: 400px;
-            height: auto;
-            border-radius: 8px;
-        }
+      .details button:hover {
+        background-color: rgb(0, 0, 125);
+      }
+      .book-cover {
+        width: 400px;
+        height: auto;
+        border-radius: 8px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="/" class="logo">
-            <img src="/assets/images/logo.png" alt="logo">
-        </a>
+      <a href="/" class="logo">
+        <img src="/assets/images/logo.png" alt="logo" />
+      </a>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="borrowed.html">Borrowed Books</a></li>
-            </ul>
-            <button>Log out</button>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="borrowed.html">Borrowed Books</a></li>
+        </ul>
+        <button onclick="logout()">log out</button>
+      </nav>
     </header>
 
     <section class="container">
-        <h2>
-            Clean code in Javascript
-        </h2>
+      <h2>Clean code in Javascript</h2>
 
-        <div class="book-details">
-            <img class="book-cover" src="/assets/images/book-cover.avif" alt="clean-code-in-javascript"/>
+      <div class="book-details">
+        <img
+          class="book-cover"
+          src="/assets/images/book-cover.avif"
+          alt="clean-code-in-javascript"
+        />
 
-            <div class="details">
-                <p>
-                    <span>
-                        Author:
-                    </span> 
-                    James P.
-                </p>
+        <div class="details">
+          <p>
+            <span> Author: </span>
+            James P.
+          </p>
 
-                <p>
-                    <span>
-                        Category:
-                    </span> 
-                    Programming
-                </p>
+          <p>
+            <span> Category: </span>
+            Programming
+          </p>
 
-                <p>
-                    <span>
-                        Status:
-                    </span> 
-                    Available
-                </p>
+          <p>
+            <span> Status: </span>
+            Available
+          </p>
 
-                <p>
-                    <span>
-                        Description:
-                    </span> 
-                    A book about clean code in Javascript
-                </p>
+          <p>
+            <span> Description: </span>
+            A book about clean code in Javascript
+          </p>
 
-                <p>
-                    <span>
-                        Available Copies:
-                    </span> 
-                    10
-                </p>
+          <p>
+            <span> Available Copies: </span>
+            10
+          </p>
 
-                <p>
-                    <span>
-                        Publication Year:
-                    </span> 
-                    2023
-                </p>
+          <p>
+            <span> Publication Year: </span>
+            2023
+          </p>
 
-                <button>Borrow</button>
-            </div>
+          <button>Borrow</button>
         </div>
+      </div>
     </section>
-</body>
+
+    <script type="module" src="/assets/js/auth.js"></script>
+  </body>
 </html>

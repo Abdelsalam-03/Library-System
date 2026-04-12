@@ -1,0 +1,86 @@
+.admin-layout{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+  width: 300px; 
+  background: var(--secondary-bg);
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container{
+    padding: 1rem;
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.logo-container img{
+    width: 50px;
+}
+
+.logo-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    line-height: 1;
+}
+
+.logo-text p{
+    margin-block: 0;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.logo-text span{
+    color: var(--secondary-color)
+}
+
+.sidebar nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.sidebar nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.sidebar li{
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar a{
+    width: 100%;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+}
+
+.sidebar a.active{
+    background: var(--primary-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} 
+
+.sidebar a:hover {
+    background: var(--primary-bg);
+    color: var(--primary-color);
+}

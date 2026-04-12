@@ -175,3 +175,10 @@ function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
+
+window.logout = function(){
+  console.log("clicked")
+  localStorage.removeItem("user");
+  window.location.assign("/");
+}
