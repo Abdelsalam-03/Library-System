@@ -9,7 +9,7 @@ async function fetchUser() {
       window.location.assign("/pages/index.html");
     }
   } catch (error) {
-    console.log("unauthorized");
+    console.log("Unauthenticated");
     window.location.assign("/index.html");
   }
 }
