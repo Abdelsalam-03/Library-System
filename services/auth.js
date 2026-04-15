@@ -66,8 +66,8 @@ export async function getUser() {
   let loggedUser = localStorage.getItem("user");
   if (loggedUser == undefined) {
     throw {
-      message: "User is already exists",
-      status: 400,
+      message: "No logged in user",
+      status: 401,
     };
   }
   return JSON.parse(loggedUser);

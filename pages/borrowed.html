@@ -1,83 +1,86 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Borrowed Books</title>
 
- 
+
   <link rel="stylesheet" href="/assets/css/global.css">
   <link rel="stylesheet" href="/assets/css/borrow.css">
-  
+
 </head>
 
 <body>
-<script type="module" src="/components/header.js"></script>
+  <script type="module" src="/components/auth/auth_guard.js"></script>
+  <script type="module" src="/components/header.js"></script>
 
-<section>
-  <h1>Borrowed Books</h1>
+  <section>
+    <h1>Borrowed Books</h1>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Borrowed On</th>
-      <th>Due Date</th>
-      <th>Actions</th>
-    </tr>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Borrowed On</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+      </tr>
 
-    <tr>
-      <td>Season of Migration to the North</td>
-      <td>Tayeb Salih</td>
-      <td>2026-03-10</td>
-      <td>2026-03-20</td>
-      <td>
-        <button onclick="returnBook(this)">Return</button>
-        <button onclick="renewBook(this)">Renew</button>
-      </td>
-    </tr>
+      <tr>
+        <td>Season of Migration to the North</td>
+        <td>Tayeb Salih</td>
+        <td>2026-03-10</td>
+        <td>2026-03-20</td>
+        <td>
+          <button onclick="returnBook(this)">Return</button>
+          <button onclick="renewBook(this)">Renew</button>
+        </td>
+      </tr>
 
-    <tr>
-      <td>Atomic Habits</td>
-      <td>James Clear</td>
-      <td>2026-03-05</td>
-      <td>2026-03-15</td>
-      <td>
-        <button onclick="returnBook(this)">Return</button>
-        <button onclick="renewBook(this)">Renew</button>
-      </td>
-    </tr>
+      <tr>
+        <td>Atomic Habits</td>
+        <td>James Clear</td>
+        <td>2026-03-05</td>
+        <td>2026-03-15</td>
+        <td>
+          <button onclick="returnBook(this)">Return</button>
+          <button onclick="renewBook(this)">Renew</button>
+        </td>
+      </tr>
 
-    <tr>
-      <td>The Old Man and The Sea</td>
-      <td>Ernest Hemingway</td>
-      <td>2026-02-20</td>
-      <td>2026-03-01</td>
-      <td>
-        <button onclick="viewBook('The Old Man and The Sea')">View</button>
-        <button onclick="reborrowBook('The Old Man and The Sea')">Reborrow</button>
-      </td>
-    </tr>
+      <tr>
+        <td>The Old Man and The Sea</td>
+        <td>Ernest Hemingway</td>
+        <td>2026-02-20</td>
+        <td>2026-03-01</td>
+        <td>
+          <button onclick="viewBook('The Old Man and The Sea')">View</button>
+          <button onclick="reborrowBook('The Old Man and The Sea')">Reborrow</button>
+        </td>
+      </tr>
 
-  </table>
-</section>
+    </table>
+  </section>
 
-<div id="ratingModal" class="rating-modal hidden">
-  <div class="rating-dialog">
-    <button id="closeRatingModal" class="close-modal" type="button" aria-label="Close rating modal">&times;</button>
-    <h2>Rate This Book</h2>
-    <p id="ratingBookName" class="rating-book-name"></p>
+  <div id="ratingModal" class="rating-modal hidden">
+    <div class="rating-dialog">
+      <button id="closeRatingModal" class="close-modal" type="button" aria-label="Close rating modal">&times;</button>
+      <h2>Rate This Book</h2>
+      <p id="ratingBookName" class="rating-book-name"></p>
 
-    <div class="stars-group" id="starsGroup" aria-label="Book rating">
-      <button type="button" class="star-btn" data-value="1">&#9733;</button>
-      <button type="button" class="star-btn" data-value="2">&#9733;</button>
-      <button type="button" class="star-btn" data-value="3">&#9733;</button>
-      <button type="button" class="star-btn" data-value="4">&#9733;</button>
-      <button type="button" class="star-btn" data-value="5">&#9733;</button>
-    </div>
+      <div class="stars-group" id="starsGroup" aria-label="Book rating">
+        <button type="button" class="star-btn" data-value="1">&#9733;</button>
+        <button type="button" class="star-btn" data-value="2">&#9733;</button>
+        <button type="button" class="star-btn" data-value="3">&#9733;</button>
+        <button type="button" class="star-btn" data-value="4">&#9733;</button>
+        <button type="button" class="star-btn" data-value="5">&#9733;</button>
+      </div>
 
-    <script src="/assets/js/borrow.js"></script>
-    <script type="module" src="/assets/js/auth.js"></script>
+      <script src="/assets/js/borrow.js"></script>
+      <script type="module" src="/assets/js/auth.js"></script>
 
-  </body>
+</body>
+
 </html>

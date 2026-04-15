@@ -5,32 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customers</title>
-    
+
     <link rel="stylesheet" href="/assets/css/global.css">
-     <link rel="stylesheet" href="/assets/css/customers.css">
+    <link rel="stylesheet" href="/assets/css/customers.css">
 
 </head>
 
 <body>
-    <script type="module" src="/components/is_admin.js"></script>
+    <script type="module" src="/components/auth/admin_guard.js"></script>
     <script type="module" src="/components/header.js"></script>
     <section>
         <div>
             <h1>Customers Page</h1>
         </div>
-        <div class = "customers-count">
-            <p class = "customer-count-text" id="total" >Total customers: <span class="value"></span></p>
+        <div class="customers-count">
+            <p class="customer-count-text" id="total">Total customers: <span class="value"></span></p>
         </div>
     </section>
     <section>
         <div>
             <div>
-                <input class = "search-input" type="text" id="search" placeholder="Search by customer name or email">
-                <input class = "search-button" type="submit" value="Search">
+                <input class="search-input" type="text" id="search" placeholder="Search by customer name or email">
+                <input class="search-button" type="submit" value="Search">
             </div>
         </div>
         <div>
-            <table border="1" class = "customers-table" id="customers_table">
+            <table border="1" class="customers-table" id="customers_table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -48,4 +48,5 @@
     </section>
     <script type="module" src="/assets/js/admin/customers.js"></script>
 </body>
+
 </html>

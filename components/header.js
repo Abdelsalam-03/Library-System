@@ -12,7 +12,6 @@ async function fetchUser() {
     addHeader(user);
   } catch (error) {
     console.log("unauthenticated");
-    window.location.assign("/index.html");
   }
 }
 
