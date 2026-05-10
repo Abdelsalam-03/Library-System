@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from backend.accounts.views import RegisterView, LogoutView, UserProfileView, ChangePasswordView
+from accounts.views import RegisterView, LogoutView, UserProfileView, ChangePasswordView
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='login'), # POST /login

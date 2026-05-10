@@ -1,11 +1,11 @@
+from accounts.models import CustomUser
 from django.core.exceptions import ValidationError
-from backend.accounts.serializers import ChangePasswordSerializer
+from accounts.serializers import ChangePasswordSerializer
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
-from django.contrib.auth.models import User
 from rest_framework import generics
 from .serializers import RegisterSerializer, UserSerializer
 
@@ -14,7 +14,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class RegisterView(generics.CreateAPIView):
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = RegisterSerializer
 
