@@ -28,7 +28,7 @@ pip install -r requirements.txt
 اعمل ملف جديد في المسار الرئيسي للمشروع (نفس مكان `manage.py`) وسميه `.env` وانسخ جواه السطور دي (حط رابط الـ Cloud Database اللي الـ Admin بعتهولك):
 
 ```Code snippet
-DATABASE_URL=postgresql://user:password@host:port/dbname
+DATABASE_URL=postgresql://postgres.shlerotwqwauaytsepzt:f8Y7qdPq1wNVQF1R@aws-0-eu-west-1.pooler.supabase.com:6543/postgres
 SECRET_KEY=django-insecure-your-secret-key-here
 DEBUG=True
 ```
