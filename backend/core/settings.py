@@ -96,6 +96,10 @@ REST_FRAMEWORK = {
 
     'DEFAULT_RENDERER_CLASSES': (
         'common.renderers.StandardizedJSONRenderer'
+    ),
+
+    'EXCEPTION_HANDLER':(
+        'common.exceptions.custom_exception_handler'
     )
 }
 
