@@ -1,5 +1,5 @@
-import { login, signup } from "/services/auth.js";
-
+import { login, signup, logout, getMe } from "/services/auth.js";
+import { parseErrors } from "/utils/api.js"
 var loginForm = document.getElementById("login_form");
 var signupForm = document.getElementById("signup_form");
 
@@ -39,25 +39,27 @@ async function handleLogin(event) {
   }
 
   if (!hasError) {
-    try {
-      let response = await login({ email: email, password: password });
-      let user = response.data;
-      localStorage.setItem("user", JSON.stringify(user));
-      if (user.is_admin) {
-        window.location.assign("/pages/admin/index.html");
-      } else {
-        window.location.assign("/pages/index.html");
+      let {data, success, errors} = await login({ email: email, password: password });
+    
+      if(!success){
+          const errorMessages = parseErrors(errors);
+          let errorLabel = document.createElement("p");
+          errorLabel.id = "main_error";
+          errorLabel.innerHTML = errorMessages[0];
+          errorLabel.classList.add("error");
+          let parent = loginForm.parentNode;
+          parent.insertBefore(errorLabel, loginForm);
+      }else{
+        localStorage.setItem('access', data.access);
+        localStorage.setItem('refresh', data.refresh);
+  
+        const user = await getMe();
+        if (user.role == "ADMIN") {
+          window.location.assign("/pages/admin/index.html");
+        } else {
+          window.location.assign("/pages/index.html");
+        }
       }
-    } catch (error) {
-      if (error.status == 400) {
-        let errorLabel = document.createElement("p");
-        errorLabel.id = "main_error";
-        errorLabel.innerHTML = "Invalid Credentials";
-        errorLabel.classList.add("error");
-        let parent = loginForm.parentNode;
-        parent.insertBefore(errorLabel, loginForm);
-      }
-    }
   }
 }
 
@@ -112,36 +114,30 @@ async function handleSignup(event) {
   }
 
   if (!hasError) {
-    try {
-      console.log("Signing up");
-      let data = {
-        name: name,
+      let registerData = {
         email: email,
+        username: email,
+        first_name: name.split(' ')[0],
+        last_name: name.split(' ')[0],
         password: password,
-        password_confirmation: passwordConfirmation,
-        is_admin: isAdminField.checked,
+        role: isAdminField.checked? "ADMIN" : "USER",
       };
-      let response = await signup(data);
-      console.log("Signed");
-      let user = response.data;
-      localStorage.setItem("user", JSON.stringify(user));
-      if (user.is_admin) {
-        window.location.assign("/pages/admin/index.html");
-      } else {
-        window.location.assign("/pages/index.html");
-      }
-    } catch (error) {
-      console.log("Error");
-      console.log(error);
-      if (error.status == 400) {
+
+      let {success, errors} = await signup(registerData);
+      
+      if(!success){
+        console.log(errors)
+        const errorMessages = parseErrors(errors);
         let errorLabel = document.createElement("p");
         errorLabel.id = "main_error";
-        errorLabel.innerHTML = "User already exists";
+        errorLabel.innerHTML = errorMessages[0];
         errorLabel.classList.add("error");
         let parent = signupForm.parentNode;
         parent.insertBefore(errorLabel, signupForm);
+      }else{
+        alert("Registered Successfully, you can now log in!");
+        window.location.assign("/pages/auth/login.html");
       }
-    }
   }
 }
 
@@ -177,8 +173,6 @@ function isValidEmail(email) {
 }
 
 
-window.logout = function(){
-  console.log("clicked")
-  localStorage.removeItem("user");
-  window.location.assign("/");
+window.logout = async function(){
+  await logout();
 }

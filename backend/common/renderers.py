@@ -18,7 +18,6 @@ class StandardizedJSONRenderer(JSONRenderer):
             "data": data if is_success else None,
             "errors": data if not is_success else None,
             "status_code": status_code
-
         }
 
         return super().render(standardized_response, accepted_media_type, renderer_context)
