@@ -1,3 +1,9 @@
 desktop.ini
 
+# Python Virtual Environment
 backend/venv
+*/venv/
+
+# .env files
+**/.env
+**/*.env
