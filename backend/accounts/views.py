@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+from backend.accounts.serializers import ChangePasswordSerializer
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework import status
 from rest_framework.response import Response
@@ -34,7 +36,22 @@ class LogoutView(APIView):
             token = RefreshToken(refresh_token)
             token.blacklist()
             return Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)
-        except TokenError as e:
-            return Response({"message": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({"message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except TokenError:
+            raise ValidationError("Token is invalid or expired")
+
+
+class ChangePasswordView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        serializer = ChangePasswordSerializer(data=request.data, context={'request': request})
+
+        serializer.is_valid(raise_exception=True)
+
+        user = request.user
+
+        user.set_password(serializer.validated_data['new_password'])
+        user.save()
+        
+        return Response({"message": "Password changed successfully"}, status=status.HTTP_200_OK)
+        

@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from backend.accounts.views import RegisterView, LogoutView, UserProfileView
+from backend.accounts.views import RegisterView, LogoutView, UserProfileView, ChangePasswordView
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='login'), # POST /login
@@ -8,7 +8,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'), # POST /register
     path('logout/', LogoutView.as_view(), name='logout'), # POST /logout
     path('me/', UserProfileView.as_view(), name='me'),  # GET, PATCH /me
-
-    # path('change-password/', change_password, name='change_password'), # POST /change-password
+    path('change-password/', ChangePasswordView.as_view(), name='change_password'), # POST /change-password
 ]
-    
