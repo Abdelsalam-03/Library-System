@@ -1,5 +1,6 @@
 import { showToast } from "/utils/toast.js";
-import { getBook } from "/services/admin/books.js";
+import { getBook, getGenres, editBook } from "/services/admin/books.js";
+import { customFetch } from "/utils/api.js";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -11,8 +12,9 @@ await fetchBook();
 
 async function fetchBook() {
   try {
-    let response = await getBook(ID);
-    fillForm(response.data);
+    let data = await getBook(ID);
+    fillGenreSelectArea(data);
+    fillForm(data);
   } catch (error) {
     console.log("Not found");
     window.location.assign("/pages/admin/view_books.html");
@@ -20,6 +22,21 @@ async function fetchBook() {
   }
 }
 
+async function fillGenreSelectArea(book) {
+  const selectGenre = document.getElementById("genre-select");
+
+  let data = await getGenres();
+
+  for(const genre of data){
+    let option = document.createElement("option");
+    option.value = genre.id;
+    option.text = genre.name;
+    if(genre.id == book.genre){
+      option.selected = true;
+    }
+    selectGenre.appendChild(option);
+  }
+}
 
 function fillForm(book) {
   const form = document.getElementById("bookForm");
@@ -27,7 +44,7 @@ function fillForm(book) {
   form.title.value = book.title;
   form.author.value = book.author;
   form.genre.value = book.genre;
-  form.isbn.value = book.ISBN;
+  form.isbn.value = book.isbn;
   form.year.value = book.year;
   form.price.value = book.price;
   form.copies.value = book.copies;
@@ -35,8 +52,8 @@ function fillForm(book) {
 
   // Show image preview
   const preview = document.getElementById("preview");
-  if (book.ISBN) {
-    preview.src = `https://covers.openlibrary.org/b/isbn/${book.ISBN}-L.jpg`;
+  if (book.isbn) {
+    preview.src = `https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`;
     preview.style.display = "block";
   }
 }
@@ -74,7 +91,7 @@ function validateField(name, value) {
   }
 }
 
-document.getElementById("bookForm").addEventListener("submit", function (e) {
+document.getElementById("bookForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -88,19 +105,19 @@ document.getElementById("bookForm").addEventListener("submit", function (e) {
     price: form.price.value,
     copies: form.copies.value,
     description: form.description.value.trim(),
-    image: form.image.files[0]
+    // image: form.image.files[0],
   };
 
   let hasChanges = false;
   let isValid = true;
 
   for (let key in updatedBook) {
-    if (key === "image") {
-      if (updatedBook.image) {
-        hasChanges = true;
-      }
-      continue;
-    }
+    // if (key === "image") {
+    //   if (updatedBook.image) {
+    //     hasChanges = true;
+    //   }
+    //   continue;
+    // }
 
     if (isChanged(originalBook[key], updatedBook[key])) {
       hasChanges = true;
@@ -112,8 +129,8 @@ document.getElementById("bookForm").addEventListener("submit", function (e) {
   }
 
   if (isValid) {
+    let data = await editBook(ID, updatedBook);
+    console.log(data);
     showToast("Book Updated Successfully.", "success");
   }
-
-
 });

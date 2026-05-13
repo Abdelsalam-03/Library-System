@@ -22,6 +22,7 @@ class Book(models.Model):
     available = models.IntegerField(default=1)
     price = models.FloatField()
     description = models.CharField(max_length=512, null=True)
+    # cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

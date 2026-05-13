@@ -1,28 +1,26 @@
 let books = [];
 
-async function loadBooks(){
-    const response = await fetch("/data/books.json");
-    books = await response.json();
+async function loadBooks() {
+  const response = await fetch("/data/books.json");
+  books = await response.json();
 }
-
 
 const detailsContainer = document.querySelector(".book-details");
 
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
 
-
 await loadBooks();
 
 const borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
 const isBorrowed = borrowedBooks.includes(+bookId);
 
-const currentBook = books.find(book => book.id == bookId);
+const currentBook = books.find((book) => book.id == bookId);
 
 detailsContainer.innerHTML = `
     <img
           class="book-cover"
-          src="https://covers.openlibrary.org/b/isbn/${currentBook.ISBN}-L.jpg"
+          src="https://covers.openlibrary.org/b/isbn/${currentBook.isbn}-L.jpg"
           alt="clean-code-in-javascript"
         />
 
@@ -59,4 +57,4 @@ detailsContainer.innerHTML = `
 
           <button onclick="handleBorrow(${currentBook.id})" ${isBorrowed ? "disabled" : ""} style="background-color: ${isBorrowed ? "gray" : ""}; cursor: ${isBorrowed ? "not-allowed" : "pointer"};">${isBorrowed ? "Already Borrowed" : "Borrow"}</button>
         </div>
-`
+`;

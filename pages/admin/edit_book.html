@@ -1,72 +1,67 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Book</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Book</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/admin/add_book.css" />
+  </head>
 
-  <link rel="stylesheet" href="/assets/css/global.css">
-  <link rel="stylesheet" href="/assets/css/admin/add_book.css">
-</head>
+  <body>
+    <script type="module" src="/components/auth/admin_guard.js"></script>
+    <script type="module" src="/components/header.js"></script>
 
-<body>
-  <script type="module" src="/components/auth/admin_guard.js"></script>
-  <script type="module" src="/components/header.js"></script>
+    <section>
+      <h2>Edit Book</h2>
 
-  <section>
-    <h2>Edit Book</h2>
+      <form id="bookForm">
+        <label>Title:</label>
+        <input required type="text" name="title" />
 
-    <form id="bookForm">
+        <label>Author:</label>
+        <input required type="text" name="author" />
 
-      <label>Title:</label>
-      <input required type="text" name="title">
+        <label>Genre:</label>
+        <select id="genre-select" name="genre">
+          <option value="">Select Genre</option>
+        </select>
 
-      <label>Author:</label>
-      <input required type="text" name="author">
+        <label>isbn:</label>
+        <input required type="text" name="isbn" />
 
-      <label>Genre:</label>
-      <select name="genre">
-        <option value="">Select Genre</option>
-        <option>Fiction</option>
-        <option>Non-Fiction</option>
-        <option>Sci-Fi</option>
-        <option>Self-Help</option>
-        <option>Finance</option>
-        <option>Memoir</option>
-        <option>History</option>
-        <option>Science</option>
-        <option>Biography</option>
-      </select>
+        <label>Publication Year:</label>
+        <input required type="number" name="year" />
 
-      <label>ISBN:</label>
-      <input required type="text" name="isbn">
+        <label>Price ($):</label>
+        <input required type="number" name="price" step="0.01" />
 
-      <label>Publication Year:</label>
-      <input required type="number" name="year">
+        <label>Number of Copies:</label>
+        <input required type="number" name="copies" />
 
-      <label>Price ($):</label>
-      <input required type="number" name="price" step="0.01">
+        <!-- <label>Book Image:</label>
+        <input type="file" name="image" accept="image/*" /> -->
 
-      <label>Number of Copies:</label>
-      <input required type="number" name="copies">
+        <!-- Image preview -->
+        <img
+          id="preview"
+          style="
+            width: 100px;
+            margin: 10px 0;
+            display: none;
+            border-radius: 8px;
+          "
+        />
 
-      <label>Book Image:</label>
-      <input type="file" name="image" accept="image/*">
+        <label>Description:</label>
+        <textarea name="description" rows="4"></textarea>
 
-      <!-- Image preview -->
-      <img id="preview" style="width:100px; margin:10px 0; display:none; border-radius:8px;" />
+        <button type="reset">Reset</button>
+        <button type="submit">Update Book</button>
+      </form>
+    </section>
 
-      <label>Description:</label>
-      <textarea name="description" rows="4"></textarea>
-
-      <button type="reset">Reset</button>
-      <button type="submit">Update Book</button>
-    </form>
-  </section>
-
-  <script type="module" src="/assets/js/admin/edit_book.js"></script>
-
-</body>
-
+    <script type="module" src="/assets/js/admin/edit_book.js"></script>
+  </body>
 </html>
