@@ -1,6 +1,14 @@
 from django.urls import path
-from .views import get_books
+from . import views
 
 urlpatterns = [
-    path('books/', get_books),
+    
+    path('books', views.books_list),
+    path('books/<int:pk>', views.book_detail),
+
+    
+    path('genres', views.genres_list),
+
+      path('books/statistics', views.book_statistics),
+
 ]
