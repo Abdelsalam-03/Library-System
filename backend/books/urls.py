@@ -7,7 +7,8 @@ from .views import (
     BookAdminDetailAPIView,
     UserGenreListAPIView,
     UserBookListAPIView,
-    UserBookDetailAPIView
+    UserBookDetailAPIView,
+    getBooksStats
 )
 
 urlpatterns = [
@@ -19,7 +20,8 @@ urlpatterns = [
     # BOOKS
     path('admin/books/', BookAdminListCreateAPIView.as_view()),
     path('admin/books/<int:pk>/', BookAdminDetailAPIView.as_view()),
-    
+    path('admin/books/stats/', getBooksStats),
+
     # User
     
     # GENRES
