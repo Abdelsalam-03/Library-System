@@ -1,6 +1,8 @@
-import { getGenres } from "/services/admin/genres.js";
+import { getGenres } from "/services/admin/books.js";
 import { getBooksStats } from "/services/admin/books.js";
 import { getBooks } from "/services/admin/books.js";
+import { customFetch } from "/utils/api.js";
+
 
 fetchBooks({});
 fetchBooksStats();
@@ -49,8 +51,10 @@ function handleSearch() {
 
 async function fetchBooks(params = {}) {
   try {
-    let response = await getBooks(params);
-    fillBooksTable(response.data);
+    let {data} = await getBooks(params);
+    let genres = await getGenres();
+
+    fillBooksTable(data, genres);
   } catch (error) {
     console.log(error);
   }
@@ -58,8 +62,8 @@ async function fetchBooks(params = {}) {
 
 async function fetchBooksStats() {
   try {
-    let response = await getBooksStats();
-    fillBooksStats(response.data);
+    let stats = await getBooksStats();
+    fillBooksStats(stats);
   } catch (error) {
     console.log(error);
   }
@@ -68,13 +72,13 @@ async function fetchBooksStats() {
 async function fetchGenres() {
   try {
     let response = await getGenres();
-    fillGenresOptions(response.data);
+    fillGenresOptions(response);
   } catch (error) {
     console.log(error);
   }
 }
 
-function fillBooksTable(books) {
+function fillBooksTable(books, genres) {
   if (!books.length) {
     booksTableBody.innerHTML = `<tr><td class="empty" colspan="9">No books found</td></tr>`;
     return;
@@ -85,22 +89,22 @@ function fillBooksTable(books) {
     row.dataset.id = book.id;
     row.innerHTML = `
     <td class="image">
-    <img src="https://covers.openlibrary.org/b/isbn/${book.ISBN}-L.jpg" 
+    <img src="https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg" 
     alt="${book.title} cover">
     </td>
     <td class="info">
         <span class="title">${book.title}</span>
-        <span class="isbn">${book.ISBN}</span>
+        <span class="isbn">${book.isbn}</span>
     </td>
     <td>${book.author}</td>
-    <td>${book.genre}</td>
+    <td>${genres.find(g => g.id == book.genre)?.name}</td>
     <td>${book.year}</td>
     <td>${book.copies}</td>
     <td>${book.available}</td>
     <td class="price">$${book.price}</td>
     <td class="actions">
       <a href="/pages/admin/edit_book.html?book=${book.id}">Edit</a>  
-      <button class="delete">Delete</button>
+      <button class="delete" onclick="deleteBook(${book.id})">Delete</button>
     </td>
   `;
 
@@ -108,6 +112,19 @@ function fillBooksTable(books) {
   });
   booksTableBody.innerHTML = "";
   booksTableBody.appendChild(body);
+}
+
+window.deleteBook = async function (id) {
+  try {
+    let response = await customFetch(`/api/admin/books/${id}/`, {
+      method: "DELETE",
+    });
+
+    alert("Book deleted successfully, click ok to refresh");
+    window.location.reload();
+  } catch (error) {
+    alert("Error deleting book, click ok to try again");
+  }
 }
 
 function fillBooksStats(stats) {
@@ -123,11 +140,11 @@ function fillBooksStats(stats) {
 
 function fillGenresOptions(genres) {
   let content = `
-    <option value="all">All Genres</option>
+    <option value="">All Genres</option>
   `;
   genres.forEach((genre) => {
     content += `
-    <option value="${genre.name}">${genre.name}</option>
+    <option value="${genre.id}">${genre.name}</option>
     `;
   });
   genreField.innerHTML = content;

@@ -10,15 +10,17 @@ A full-featured, browser-based library management web application built with van
 ## ✨ Features
 
 ### 👤 User Features
+
 - **Sign Up / Login** — Create an account or log in with email and password.
 - **Browse Books** — View all available books in a searchable, filterable table.
 - **Search & Filter** — Search by title or author, and filter by genre/category.
-- **Book Details** — View full details for any book (title, author, genre, ISBN, year, description).
+- **Book Details** — View full details for any book (title, author, genre, isbn, year, description).
 - **Borrow a Book** — Request to borrow any available book with a single click.
 - **My Borrowed Books** — View all borrow requests and their current status (pending / approved / rejected).
 - **Profile Management** — Update display name and change password.
 
 ### 🔧 Admin Features
+
 - **Admin Dashboard** — Overview of library statistics (total books, available, borrowed, genres).
 - **Manage Books** — Full CRUD: add, view, edit, and delete books from the catalog.
 - **Borrow Requests** — Review all borrow requests; approve or reject them with sorting and filtering.
@@ -26,6 +28,7 @@ A full-featured, browser-based library management web application built with van
 - **Dynamic Navigation** — The navbar adapts automatically to the logged-in user's role.
 
 ### 🛠️ General
+
 - **Toast Notifications** — Non-blocking feedback messages for every action.
 - **Role-based Routing** — Pages are guarded so users cannot access admin routes and vice versa.
 - **Persistent Session** — User session is stored in `localStorage` and survives page refreshes.
@@ -82,18 +85,21 @@ Library-System/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - A modern web browser (Chrome, Firefox, Edge, Safari)
 - A local web server (required because the app uses ES Modules and `fetch` to load JSON data)
 
 ### Running the App
 
 **Option 1 — VS Code Live Server (recommended)**
+
 1. Open the project folder in VS Code.
 2. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
 3. Right-click `index.html` → **Open with Live Server**.
 4. The app will open at `http://127.0.0.1:5500`.
 
 **Option 2 — Python built-in server**
+
 ```bash
 # Python 3
 cd Library-System
@@ -102,14 +108,15 @@ python -m http.server 8080
 ```
 
 **Option 3 — Node.js `serve`**
+
 ```bash
 npx serve .
 ```
 
 ### Demo Credentials
 
-| Role  | Email | Password |
-|-------|-------|----------|
+| Role  | Email             | Password    |
+| ----- | ----------------- | ----------- |
 | Admin | `admin@gmail.com` | `admin1234` |
 | User  | `user@gmail.com`  | `user1234`  |
 
@@ -120,42 +127,45 @@ npx serve .
 ## 🛣️ Page Routes
 
 ### Public
-| Route | Description |
-|-------|-------------|
-| `/index.html` | Welcome / landing page |
-| `/pages/auth/login.html` | Login |
-| `/pages/auth/signup.html` | Sign up |
+
+| Route                     | Description            |
+| ------------------------- | ---------------------- |
+| `/index.html`             | Welcome / landing page |
+| `/pages/auth/login.html`  | Login                  |
+| `/pages/auth/signup.html` | Sign up                |
 
 ### User (requires login)
-| Route | Description |
-|-------|-------------|
-| `/pages/books.html` | Browse & search all books |
-| `/pages/view_book.html?id=[id]` | Book detail page |
-| `/pages/borrowed.html` | My borrow requests |
-| `/pages/profile.html` | Update name / change password |
+
+| Route                           | Description                   |
+| ------------------------------- | ----------------------------- |
+| `/pages/books.html`             | Browse & search all books     |
+| `/pages/view_book.html?id=[id]` | Book detail page              |
+| `/pages/borrowed.html`          | My borrow requests            |
+| `/pages/profile.html`           | Update name / change password |
 
 ### Admin (requires admin login)
-| Route | Description |
-|-------|-------------|
-| `/pages/admin/index.html` | Admin dashboard |
-| `/pages/admin/view_books.html` | All books with edit / delete |
-| `/pages/admin/add_book.html` | Add a new book |
-| `/pages/admin/edit_book.html?id=[id]` | Edit a book |
-| `/pages/admin/view_book.html?id=[id]` | Book detail (admin view) |
-| `/pages/admin/borrow_requests.html` | Approve / reject requests |
-| `/pages/admin/customers.html` | All registered users |
-| `/pages/admin/customer.html?id=[id]` | Individual user profile |
+
+| Route                                 | Description                  |
+| ------------------------------------- | ---------------------------- |
+| `/pages/admin/index.html`             | Admin dashboard              |
+| `/pages/admin/view_books.html`        | All books with edit / delete |
+| `/pages/admin/add_book.html`          | Add a new book               |
+| `/pages/admin/edit_book.html?id=[id]` | Edit a book                  |
+| `/pages/admin/view_book.html?id=[id]` | Book detail (admin view)     |
+| `/pages/admin/borrow_requests.html`   | Approve / reject requests    |
+| `/pages/admin/customers.html`         | All registered users         |
+| `/pages/admin/customer.html?id=[id]`  | Individual user profile      |
 
 ---
 
 ## 🏗️ Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Markup | HTML5 |
-| Styling | CSS3 (custom, no framework) |
-| Logic | Vanilla JavaScript (ES Modules) |
-| Data | Static JSON files (mock API) |
+| Layer   | Technology                           |
+| ------- | ------------------------------------ |
+| Markup  | HTML5                                |
+| Styling | CSS3 (custom, no framework)          |
+| Logic   | Vanilla JavaScript (ES Modules)      |
+| Data    | Static JSON files (mock API)         |
 | Storage | `localStorage` (session persistence) |
 
 ---
@@ -163,13 +173,14 @@ npx serve .
 ## 📊 Data Models
 
 ### Book
+
 ```json
 {
   "id": 1,
   "title": "The Silent Patient",
   "author": "Alex Michaelides",
   "genre": "Thriller",
-  "ISBN": "9781250301697",
+  "isbn": "9781250301697",
   "year": 2019,
   "copies": 10,
   "available": 10,
@@ -179,6 +190,7 @@ npx serve .
 ```
 
 ### User
+
 ```json
 {
   "id": 1,
@@ -190,6 +202,7 @@ npx serve .
 ```
 
 ### Borrow Request
+
 ```json
 {
   "id": 1,
@@ -211,15 +224,15 @@ Below are suggested features and pages that would enhance the Library System:
 
 ### 📄 New Pages
 
-| Page | Description |
-|------|-------------|
-| `/pages/wishlist.html` | Users save books to a personal wishlist / favourites list |
-| `/pages/reading-history.html` | Full history of all books a user has ever borrowed |
-| `/pages/genres.html` | Browsable gallery of all genres with book counts |
-| `/pages/notifications.html` | In-app notification centre (borrow approved / rejected alerts) |
-| `/pages/admin/reports.html` | Analytics dashboard: borrow trends, popular books, top users |
-| `/pages/admin/user-edit.html` | Admin can edit or deactivate a user account |
-| `/pages/book-reviews.html` | Users leave star ratings and written reviews for books |
+| Page                          | Description                                                    |
+| ----------------------------- | -------------------------------------------------------------- |
+| `/pages/wishlist.html`        | Users save books to a personal wishlist / favourites list      |
+| `/pages/reading-history.html` | Full history of all books a user has ever borrowed             |
+| `/pages/genres.html`          | Browsable gallery of all genres with book counts               |
+| `/pages/notifications.html`   | In-app notification centre (borrow approved / rejected alerts) |
+| `/pages/admin/reports.html`   | Analytics dashboard: borrow trends, popular books, top users   |
+| `/pages/admin/user-edit.html` | Admin can edit or deactivate a user account                    |
+| `/pages/book-reviews.html`    | Users leave star ratings and written reviews for books         |
 
 ### ⚙️ Feature Improvements
 
@@ -240,14 +253,14 @@ Below are suggested features and pages that would enhance the Library System:
 
 ## 👥 Team
 
-| Name | Student ID |
-|------|-----------|
-| Abdelsalam Abdelrahman Abdelmageed Abdelrahman | 20243033 |
-| Mohamed Alfatih Tarig El Tayeb | 20243029 |
-| Mohammed Abdulmajeed Aljunaid | 20230713 |
-| Omer Mudathir Abdallah Mohammed | 20243055 |
-| Moneeb Salaheldin Bakhit | 20243085 |
-| Mohammad Abdulhakim Ramadan | 20242295 |
+| Name                                           | Student ID |
+| ---------------------------------------------- | ---------- |
+| Abdelsalam Abdelrahman Abdelmageed Abdelrahman | 20243033   |
+| Mohamed Alfatih Tarig El Tayeb                 | 20243029   |
+| Mohammed Abdulmajeed Aljunaid                  | 20230713   |
+| Omer Mudathir Abdallah Mohammed                | 20243055   |
+| Moneeb Salaheldin Bakhit                       | 20243085   |
+| Mohammad Abdulhakim Ramadan                    | 20242295   |
 
 ---
 

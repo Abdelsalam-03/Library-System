@@ -4,7 +4,6 @@ const params = new URLSearchParams(window.location.search);
 
 const ID = params.get("id");
 
-
 await fetchBook();
 
 async function fetchBook() {
@@ -21,12 +20,12 @@ function fillBookInformation(book) {
 
   container.innerHTML = `
     <div class="book_header">
-            <img src="https://covers.openlibrary.org/b/isbn/${book.ISBN}-L.jpg" alt="Book Cover" class="book_cover">
+            <img src="https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg" alt="Book Cover" class="book_cover">
 
             <div class="book_info">
                 <h1>${book.title}</h1>
                 <p class="author">by ${book.author}</p>
-                <p class="isbn">ISBN: ${book.ISBN}</p>
+                <p class="isbn">isbn: ${book.isbn}</p>
 
                 <div class="actions">
                     <a href="/pages/admin/edit_book.html?book=${book.id}" class="edit-btn">Edit</a>

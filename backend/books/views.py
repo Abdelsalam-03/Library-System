@@ -5,6 +5,8 @@ from .models import Genre, Book
 from .serializers import GenreSerializer, BookUserSerializer, BookAdminSerializer
 from django.http import JsonResponse
 from accounts.permissions import IsAdminRole
+from django.db.models import F
+from rest_framework.decorators import api_view
 
 # def get_books(request):
 #     data = [
@@ -12,6 +14,22 @@ from accounts.permissions import IsAdminRole
 #         {"id": 2, "title": "Clean Code"}
 #     ]
 #     return JsonResponse(data, safe=False)
+
+@api_view(['GET'])
+def getBooksStats(request):
+    total_books = Book.objects.count()
+    available_books = Book.objects.filter(available__gt=0).count()
+    borrowed_books = Book.objects.filter(copies__gt=F('available')).count() 
+    total_genres = Genre.objects.count()
+    return Response(
+        status=status.HTTP_200_OK,   
+        data={
+            'total_books': total_books,
+            'available_books': available_books,
+            'borrowed_books': borrowed_books,
+            'total_genres': total_genres
+        }
+    )
 
 class GenreAdminListCreateAPIView(APIView):
     permission_classes = [IsAdminRole]
@@ -105,12 +123,30 @@ class GenreAdminDetailAPIView(APIView):
             'Genre deleted successfully',
             status=status.HTTP_204_NO_CONTENT
         )   
-
+        
 class BookAdminListCreateAPIView(APIView):
     permission_classes = [IsAdminRole]
     def get(self, request):
 
+        genre_query = request.query_params.get('genre')
+        available_query = request.query_params.get('available')
+        query = request.query_params.get('query')
+
         books = Book.objects.all()
+
+        if query:
+            books = books.filter(title__icontains=query) | books.filter(author__icontains=query)
+
+        if genre_query:
+            books = books.filter(genre=genre_query)
+
+        if available_query is not None:
+            available = int(available_query)
+            
+            if available:
+                books = books.filter(available__gt=0)
+            else:
+                books = books.filter(available__lte=0)
 
         serializer = BookAdminSerializer(
             books,
@@ -236,7 +272,7 @@ class BookAdminDetailAPIView(APIView):
 class UserGenreListAPIView(APIView):
 
     def get(self, request):
-
+        
         genres = Genre.objects.all()
 
         serializer = GenreSerializer(

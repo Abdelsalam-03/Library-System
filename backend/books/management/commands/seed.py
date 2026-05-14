@@ -288,7 +288,7 @@ BOOKS = [
 
 USERS = [
     {
-        "username": "admin",
+        "username": "admin@library.com",
         "email": "admin@library.com",
         "password": "Admin@1234",
         "first_name": "Admin",
@@ -298,7 +298,7 @@ USERS = [
         "is_superuser": True,
     },
     {
-        "username": "librarian",
+        "username": "librarian@library.com",
         "email": "librarian@library.com",
         "password": "Librarian@1234",
         "first_name": "Sara",
@@ -308,7 +308,7 @@ USERS = [
         "is_superuser": False,
     },
     {
-        "username": "john_doe",
+        "username": "john_doe@library.com",
         "email": "john.doe@example.com",
         "password": "User@1234",
         "first_name": "John",
@@ -318,7 +318,7 @@ USERS = [
         "is_superuser": False,
     },
     {
-        "username": "jane_smith",
+        "username": "jane_smith@library.com",
         "email": "jane.smith@example.com",
         "password": "User@1234",
         "first_name": "Jane",
@@ -328,8 +328,8 @@ USERS = [
         "is_superuser": False,
     },
     {
-        "username": "ahmed_hassan",
-        "email": "ahmed.hassan@example.com",
+        "username": "ahmed_hassan@library.com",
+        "email": "ahmed.hassan@library.com",
         "password": "User@1234",
         "first_name": "Ahmed",
         "last_name": "Hassan",
@@ -338,8 +338,8 @@ USERS = [
         "is_superuser": False,
     },
     {
-        "username": "nour_omar",
-        "email": "nour.omar@example.com",
+        "username": "nour_omar@library.com",
+        "email": "nour.omar@library.com",
         "password": "User@1234",
         "first_name": "Nour",
         "last_name": "Omar",
@@ -563,11 +563,11 @@ class Command(BaseCommand):
         self.stdout.write("  ┌─────────────┬──────────────┬───────────────────┐")
         self.stdout.write("  │ Username    │ Password     │ Role              │")
         self.stdout.write("  ├─────────────┼──────────────┼───────────────────┤")
-        self.stdout.write("  │ admin       │ Admin@1234   │ Superuser / Admin │")
-        self.stdout.write("  │ librarian   │ Librarian@1234│ Staff / Admin    │")
-        self.stdout.write("  │ john_doe    │ User@1234    │ User              │")
-        self.stdout.write("  │ jane_smith  │ User@1234    │ User              │")
-        self.stdout.write("  │ ahmed_hassan│ User@1234    │ User              │")
-        self.stdout.write("  │ nour_omar   │ User@1234    │ User              │")
+        self.stdout.write("  │ admin@library.com       │ Admin@1234   │ Superuser / Admin │")
+        self.stdout.write("  │ librarian@library.com   │ Librarian@1234│ Staff / Admin    │")
+        self.stdout.write("  │ john_doe@library.com    │ User@1234    │ User              │")
+        self.stdout.write("  │ jane_smith@library.com  │ User@1234    │ User              │")
+        self.stdout.write("  │ ahmed_hassan@library.com│ User@1234    │ User              │")
+        self.stdout.write("  │ nour_omar@library.com   │ User@1234    │ User              │")
         self.stdout.write("  └─────────────┴──────────────┴───────────────────┘")
         self.stdout.write("")
