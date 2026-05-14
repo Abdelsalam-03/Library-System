@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import BorrowRecord
 
+from books.models import Book
 
 class BorrowRecordSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source="user.username", read_only=True)
@@ -13,7 +14,6 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
             "id",
             "user",
             "username",
-            "book_id",
             "status",
             "requested_at",
             "approved_at",
@@ -24,6 +24,7 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
             "renewal_count",
             "rejection_reason",
             "is_overdue",
+            "book",
         ]
         read_only_fields = [
             "id",
@@ -43,7 +44,14 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
 
 
 class BorrowCreateSerializer(serializers.Serializer):
-    book_id = serializers.IntegerField(min_value=1)
+    book_id = serializers.PrimaryKeyRelatedField(
+        queryset=Book.objects.all(),
+        source='book'
+    )
+    
+    class Meta:
+        model = BorrowRecord
+        fields = ['book_id']
 
 
 class BorrowRecordIdSerializer(serializers.Serializer):

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+from books.models import Book
 
 class BorrowRecord(models.Model):
     class Status(models.TextChoices):
@@ -18,7 +19,11 @@ class BorrowRecord(models.Model):
         on_delete=models.CASCADE,
         related_name="borrow_records",
     )
-    book_id = models.PositiveIntegerField()
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE,
+        related_name='book',
+    )
     status = models.CharField(
         max_length=20,
         choices=Status.choices,
@@ -39,7 +44,7 @@ class BorrowRecord(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.user} - Book #{self.book_id} - {self.status}"
+        return f"{self.user} - Book #{self.book.title} - {self.status}"
 
     @property
     def is_overdue(self):
@@ -57,15 +62,23 @@ class BorrowRecord(models.Model):
         self.due_date = now + timedelta(days=days)
         self.rejection_reason = ""
 
+        self.book.available -= 1
+        self.book.save()
+
     def reject(self, reason=""):
         self.status = self.Status.REJECTED
         self.rejected_at = timezone.now()
         self.rejection_reason = reason
+        self.save()
 
     def mark_returned(self):
         self.status = self.Status.RETURNED
         self.returned_at = timezone.now()
+        
+        self.book.available += 1
+        self.book.save()
 
     def renew(self, days=7):
         self.due_date = self.due_date + timedelta(days=days)
         self.renewal_count += 1
+        self.save()

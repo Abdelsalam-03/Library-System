@@ -26,6 +26,8 @@ def create_borrow_request(user, book_id):
 def approve_borrow_request(borrow_record):
     if borrow_record.status != BorrowRecord.Status.PENDING:
         raise ValidationError("Only pending requests can be approved.")
+    if borrow_record.book.available < 1:
+        raise ValidationError("Book is not available.")
 
     borrow_record.approve(days=DEFAULT_BORROW_DAYS)
     borrow_record.save()

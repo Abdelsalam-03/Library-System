@@ -27,10 +27,16 @@ class BorrowBookView(APIView):
     def post(self, request):
         serializer = BorrowCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        if serializer.validated_data['book'].available < 1:
+            return Response(
+                'Book is not available for now',
+                status=status.HTTP_404_NOT_FOUND
+            )
         borrow_record = create_borrow_request(
             user=request.user,
-            book_id=serializer.validated_data["book_id"],
+            book_id=serializer.validated_data['book'].id,
         )
+        
         return Response(
             BorrowRecordSerializer(borrow_record).data,
             status=status.HTTP_201_CREATED,

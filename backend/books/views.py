@@ -232,8 +232,7 @@ class BookAdminDetailAPIView(APIView):
             'Book deleted successfully',
             status=status.HTTP_204_NO_CONTENT
         )
- 
- 
+
 class UserGenreListAPIView(APIView):
 
     def get(self, request):

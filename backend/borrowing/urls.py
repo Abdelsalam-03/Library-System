@@ -10,7 +10,6 @@ from .views import (
     UpdateOverdueBorrowingsView,
 )
 
-
 urlpatterns = [
     path("borrow/", BorrowBookView.as_view(), name="borrow-book"),
     path("return/", ReturnBookView.as_view(), name="return-book"),
