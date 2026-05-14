@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),  # Auth routes
     path('api/', include('books.urls')),
     path('api/', include('borrowing.urls')),
+    path('api/', include('dashboard.urls')),
 ]
