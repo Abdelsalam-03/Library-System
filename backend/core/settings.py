@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'books',
     'borrowing',
+    'history',
+    'reviews',
+    'dashboard',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
