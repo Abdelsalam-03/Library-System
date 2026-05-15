@@ -1,5 +1,5 @@
 import { destroySession } from "/services/auth.js";
-import { getUser } from "/services/auth.js";
+import { getMe } from "/services/auth.js";
 
 await fetchUser();
 
@@ -8,7 +8,7 @@ logoutButton.addEventListener("click", logout);
 
 async function fetchUser() {
   try {
-    const user = await getUser();
+    const user = await getMe();
     addHeader(user);
   } catch (error) {
     console.log("unauthenticated");
@@ -34,7 +34,7 @@ function addHeader(user) {
         <nav>
             <ul>
             ${
-              user.is_admin
+              user.role == "ADMIN"
                 ? `
                 <li><a href="/pages/admin/index.html">Home</a></li>
                 <li><a href="/pages/admin/view_books.html">View Books</a></li>
