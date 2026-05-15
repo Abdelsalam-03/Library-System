@@ -1,17 +1,44 @@
+import { customFetch } from "/utils/api.js";
+
 export async function getBorrowRequests(params = {}) {
   try {
-    const response = await fetch("/data/borrow_requests.json");
-    let data = await response.json();
-    if (params.sorting_type != undefined) {
-      if (params.sorting_type == "asc") {
-        data = data.reverse();
-      }
-    }
-    if (params.status != undefined && params.status != "all") {
-      data = data.filter((item) => {
-        return item.status == params.status;
-      });
-    }
+    let url = `/api/admin/borrow-requests?`;
+    const querystring = new URLSearchParams(params).toString();
+    const response = await customFetch(url + querystring, {
+      method: "GET",
+    });
+    let { data } = await response.json();
+
+    return { data: data };
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+  }
+}
+
+export async function approveRequest(id) {
+  try {
+    let url = `/api/admin/borrow-requests/${id}/`;
+    const response = await customFetch(url, {
+      method: "PATCH",
+      body: JSON.stringify({action: "approve"}),
+    });
+    let { data } = await response.json();
+
+    return { data: data };
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+  }
+}
+
+export async function rejectRequest(id, message) {
+  try {
+    let url = `/api/admin/borrow-requests/${id}/`;
+    const response = await customFetch(url, {
+      method: "PATCH",
+      body: JSON.stringify({action: "reject", rejection_reason: message}),
+    });
+    let { data } = await response.json();
+
     return { data: data };
   } catch (error) {
     console.error("Error fetching JSON:", error);

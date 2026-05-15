@@ -25,11 +25,11 @@ urlpatterns = [
         AdminBorrowRequestsView.as_view(),
         name="admin-borrow-requests",
     ),
-    path(
-        "admin/borrow-requests/<int:pk>",
-        AdminBorrowRequestDetailView.as_view(),
-        name="admin-borrow-request-detail-no-slash",
-    ),
+    # path(
+    #     "admin/borrow-requests/<int:pk>",
+    #     AdminBorrowRequestDetailView.as_view(),
+    #     name="admin-borrow-request-detail-no-slash",
+    # ),
     path(
         "admin/borrow-requests/<int:pk>/",
         AdminBorrowRequestDetailView.as_view(),
