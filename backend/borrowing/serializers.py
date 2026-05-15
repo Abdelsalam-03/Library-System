@@ -42,7 +42,6 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
             "is_overdue",
         ]
 
-
 class BorrowCreateSerializer(serializers.Serializer):
     book_id = serializers.PrimaryKeyRelatedField(
         queryset=Book.objects.all(),
