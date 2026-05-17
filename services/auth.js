@@ -48,10 +48,9 @@ export async function logout() {
     localStorage.removeItem("refresh");
   } else {
     localStorage.clear();
-    window.location.assign("/pages/auth/login.html");
   }
 
-  return result.success;
+  return result;
 }
 
 export async function signup(registerData) {
@@ -86,19 +85,4 @@ export async function changeName(data) {
   const result = await res.json();
 
   return result;
-}
-
-// export async function getUser() {
-//   let loggedUser = localStorage.getItem("user");
-//   if (loggedUser == undefined) {
-//     throw {
-//       message: "No logged in user",
-//       status: 401,
-//     };
-//   }
-//   return JSON.parse(loggedUser);
-// }
-
-export async function destroySession() {
-  localStorage.removeItem("user");
 }

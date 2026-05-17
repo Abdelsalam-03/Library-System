@@ -1,10 +1,9 @@
-import { destroySession } from "/services/auth.js";
-import { getMe } from "/services/auth.js";
+import { getMe, logout } from "/services/auth.js";
 
 await fetchUser();
 
 const logoutButton = document.getElementById("logout-button");
-logoutButton.addEventListener("click", logout);
+logoutButton.addEventListener("click", logoutAction);
 
 async function fetchUser() {
   try {
@@ -15,10 +14,14 @@ async function fetchUser() {
   }
 }
 
-async function logout() {
+async function logoutAction() {
   try {
-    await destroySession();
-    window.location.assign("/index.html");
+    let response = await logout();
+    if (response.success) {
+      window.location.assign("/index.html");
+    } else {
+      window.location.assign("/pages/auth/login.html");
+    }
   } catch (error) {
     console.log("unauthorized");
   }
