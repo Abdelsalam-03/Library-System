@@ -1,5 +1,5 @@
 import { showToast } from "/utils/toast.js";
-import { getUser } from "/services/auth.js";
+import { getMe, changePassword, changeName } from "/services/auth.js";
 let user = null;
 
 const nameField = document.getElementById("name");
@@ -19,7 +19,7 @@ passwordForm.addEventListener("submit", handleChangePassword);
 await fetchUser();
 async function fetchUser() {
   try {
-    let response = await getUser();
+    let response = await getMe();
     user = response;
     fillUserInformation();
   } catch (error) {
@@ -28,7 +28,7 @@ async function fetchUser() {
 }
 
 function fillUserInformation() {
-  nameField.value = user.name;
+  nameField.value = user.username;
   resetNameErrors();
 }
 
@@ -45,7 +45,7 @@ async function handleChangeName(event) {
     errorLabel.classList.add("error");
     nameField.classList.add("warning");
     nameField.parentNode.appendChild(errorLabel);
-  } else if (name == user.name) {
+  } else if (name == user.username) {
     hasError = true;
     let errorLabel = document.createElement("p");
     errorLabel.innerHTML = "Please enter a new name";
@@ -58,10 +58,17 @@ async function handleChangeName(event) {
     try {
       console.log("Changing name");
       let data = {
-        name: name,
+        username: name,
       };
       //Send request
-      showToast("Name Changed Successfully.", "success");
+      let response = await changeName(data);
+      console.log(response);
+      if (response.success) {
+        showToast("Name Changed Successfully.", "success");
+        passwordForm.reset();
+      } else {
+        showToast("Name not Changed.", "error");
+      }
     } catch (error) {
       console.log("Error");
       console.log(error);
@@ -109,12 +116,18 @@ async function handleChangePassword(event) {
       console.log("Changing Password");
       let data = {
         old_password: oldPassword,
-        password: newPassword,
+        new_password: newPassword,
         password_confirmation: passwordConfirmation,
       };
       // Send request
-      passwordForm.reset();
-      showToast("Password Changed Successfully.", "success");
+      let response = await changePassword(data);
+      console.log(response);
+      if (response.success) {
+        showToast("Password Changed Successfully.", "success");
+        passwordForm.reset();
+      } else {
+        showToast("Password not Changed.", "error");
+      }
     } catch (error) {
       console.log("Error");
       console.log(error);
