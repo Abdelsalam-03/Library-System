@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admins Home</title>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/admin/home_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <script type="module" src="/components/auth/admin_guard.js"></script>
+  <script type="module" src="/components/header.js"></script>
+
+  <main class="home_section">
+
+    <!-- Welcome Banner -->
+    <div class="welcome_banner">
+      <div class="welcome_text">
+        <h1>Welcome back, Admin</h1>
+        <p>Here's an overview of your library system today.</p>
+      </div>
+      <div class="welcome_icon">
+        <i class="fa-solid fa-book"></i>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats_grid">
+      <div class="stat_card">
+        <div class="stat_icon"></div>
+        <div class="stat_label">Total Books</div>
+        <div class="stat_value" data-target="50">0</div>
+        <div class="stat_sub">In the library</div>
+      </div>
+      <div class="stat_card">
+        <div class="stat_icon"></div>
+        <div class="stat_label">Available Now</div>
+        <div class="stat_value" data-target="39">0</div>
+        <div class="stat_sub">Ready to borrow</div>
+      </div>
+      <div class="stat_card">
+        <div class="stat_icon"></div>
+        <div class="stat_label">Currently Borrowed</div>
+        <div class="stat_value" data-target="11">0</div>
+        <div class="stat_sub">Active loans</div>
+      </div>
+      <div class="stat_card">
+        <div class="stat_icon"></div>
+        <div class="stat_label">Total Customers</div>
+        <div class="stat_value" data-target="53">0</div>
+        <div class="stat_sub">Registered members</div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div>
+      <h3 class="section_title">Quick Actions</h3>
+      <div class="quick_actions">
+        <a href="view_books.html" class="action_card">
+          <div class="action_icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="action_text">
+            <h4>View All Books</h4>
+            <p>Browse and manage the book catalog</p>
+          </div>
+        </a>
+        <a href="add_book.html" class="action_card">
+          <div class="action_icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="action_text">
+            <h4>Add New Book</h4>
+            <p>Add a new book to the library</p>
+          </div>
+        </a>
+        <a href="customers.html" class="action_card">
+          <div class="action_icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="action_text">
+            <h4>Manage Customers</h4>
+            <p>View and browse all registered customers</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Grid: Recent Books + Activity -->
+    <div class="bottom_grid">
+
+      <!-- Recent Books -->
+      <div class="recent_box">
+        <h3 class="section_title">Recent Books</h3>
+        <div class="recent_books_list" id="recent_books_list"></div>
+      </div>
+
+      <!-- Recent Borrow Activity -->
+      <div class="recent_box">
+        <h3 class="section_title">Recent Borrow Activity</h3>
+        <table class="activity_table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Book</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="activity_tbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="/assets/js/admin/home_page.js"></script>
+</body>
+
+</html>

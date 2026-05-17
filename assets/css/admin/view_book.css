@@ -1,0 +1,92 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.information {
+  width: 90%;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.book_header {
+  display: flex;
+  gap: 25px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.book_cover {
+  width: 120px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book_info h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.author {
+  color: #6b7280;
+  margin: 5px 0;
+}
+
+.isbn {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.actions {
+  margin-top: 15px;
+}
+.actions > * {
+  transition: 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.actions > *:hover {
+  filter: brightness(0.9);
+}
+
+.edit-btn {
+  background: #f3f4f6;
+  color: #374151;   
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background: var(--red-color);
+}
+
+.book_details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.detail {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.detail span {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.detail strong {
+  font-size: 16px;
+}

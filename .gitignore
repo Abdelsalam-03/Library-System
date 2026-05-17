@@ -1,0 +1,13 @@
+desktop.ini
+
+# Python Virtual Environment
+backend/venv
+*/venv/
+
+# .env files
+**/.env
+**/*.env
+__pycache__/
+*.pyc
+db.sqlite3
+.env

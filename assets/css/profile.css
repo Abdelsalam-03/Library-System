@@ -1,0 +1,85 @@
+body {
+  background-color: var(--background-color);
+}
+
+.title{
+    margin-top: 0;
+}
+
+.component {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+}
+.component .head > * {
+  margin: 0;
+  padding: 0;
+}
+
+.component .head p {
+  font-size: 14px;
+  margin-top: -5px;
+  color: var(--light-text-color);
+}
+
+.component .item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 1rem;
+}
+.item label {
+  margin-bottom: -1rem;
+  color: var(--dark-text-color);
+}
+.component .item input {
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.component .item input.warning {
+  border-color: #ff6a6a;
+}
+
+.component .item input:focus {
+  border-color: #6e6e6e;
+}
+
+.component .actions {
+  display: flex;
+  gap: 1rem;
+  justify-self: flex-end;
+  margin-top: 1rem;
+}
+.component .actions button {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.component .actions button:hover {
+  background-color: var(--dark-background-color);
+  border-color: var(--dark-background-color);
+  color: white;
+}
+.component .actions button.submit {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+}
+.component .actions button.submit:hover {
+  background-color: var(--primary-color);
+  filter: brightness(1.1);
+}

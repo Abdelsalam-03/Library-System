@@ -1,0 +1,247 @@
+[
+  {
+    "id": 1,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 1, "title": "The Silent Patient" },
+    "borrowed_at": "2026-01-01",
+    "returned_at": "2026-01-10",
+    "overdue": false
+  },
+  {
+    "id": 2,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 2, "title": "Atomic Habits" },
+    "borrowed_at": "2026-01-03",
+    "returned_at": "2026-01-20",
+    "overdue": true
+  },
+  {
+    "id": 3,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 3, "title": "1984" },
+    "borrowed_at": "2026-01-05",
+    "returned_at": null,
+    "overdue": true
+  },
+  {
+    "id": 4,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 4, "title": "To Kill a Mockingbird" },
+    "borrowed_at": "2026-01-07",
+    "returned_at": "2026-01-14",
+    "overdue": false
+  },
+  {
+    "id": 5,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 5, "title": "The Hobbit" },
+    "borrowed_at": "2026-01-08",
+    "returned_at": null,
+    "overdue": false
+  },
+
+  {
+    "id": 6,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 6, "title": "Clean Code" },
+    "borrowed_at": "2026-01-10",
+    "returned_at": "2026-01-25",
+    "overdue": true
+  },
+  {
+    "id": 7,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 7, "title": "The Alchemist" },
+    "borrowed_at": "2026-01-12",
+    "returned_at": "2026-01-18",
+    "overdue": false
+  },
+  {
+    "id": 8,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 8, "title": "Sapiens" },
+    "borrowed_at": "2026-01-15",
+    "returned_at": null,
+    "overdue": true
+  },
+  {
+    "id": 9,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 9, "title": "The Maidens" },
+    "borrowed_at": "2026-01-18",
+    "returned_at": "2026-01-28",
+    "overdue": false
+  },
+  {
+    "id": 10,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 10, "title": "The Power of Habit" },
+    "borrowed_at": "2026-01-20",
+    "returned_at": "2026-02-05",
+    "overdue": true
+  },
+
+  {
+    "id": 11,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 11, "title": "Brave New World" },
+    "borrowed_at": "2026-01-22",
+    "returned_at": null,
+    "overdue": false
+  },
+  {
+    "id": 12,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 12, "title": "Pride and Prejudice" },
+    "borrowed_at": "2026-01-25",
+    "returned_at": "2026-02-01",
+    "overdue": false
+  },
+  {
+    "id": 13,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 13, "title": "Harry Potter and the Sorcerer's Stone" },
+    "borrowed_at": "2026-01-28",
+    "returned_at": "2026-02-20",
+    "overdue": true
+  },
+  {
+    "id": 14,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 14, "title": "The Pragmatic Programmer" },
+    "borrowed_at": "2026-02-01",
+    "returned_at": null,
+    "overdue": true
+  },
+  {
+    "id": 15,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 1, "title": "The Silent Patient" },
+    "borrowed_at": "2026-02-03",
+    "returned_at": "2026-02-10",
+    "overdue": false
+  },
+
+  {
+    "id": 16,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 2, "title": "Atomic Habits" },
+    "borrowed_at": "2026-02-05",
+    "returned_at": null,
+    "overdue": false
+  },
+  {
+    "id": 17,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 3, "title": "1984" },
+    "borrowed_at": "2026-02-07",
+    "returned_at": "2026-02-25",
+    "overdue": true
+  },
+  {
+    "id": 18,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 4, "title": "To Kill a Mockingbird" },
+    "borrowed_at": "2026-02-10",
+    "returned_at": "2026-02-15",
+    "overdue": false
+  },
+  {
+    "id": 19,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 5, "title": "The Hobbit" },
+    "borrowed_at": "2026-02-12",
+    "returned_at": null,
+    "overdue": false
+  },
+  {
+    "id": 20,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 6, "title": "Clean Code" },
+    "borrowed_at": "2026-02-15",
+    "returned_at": "2026-03-05",
+    "overdue": true
+  },
+
+  {
+    "id": 21,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 7, "title": "The Alchemist" },
+    "borrowed_at": "2026-02-18",
+    "returned_at": "2026-02-22",
+    "overdue": false
+  },
+  {
+    "id": 22,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 8, "title": "Sapiens" },
+    "borrowed_at": "2026-02-20",
+    "returned_at": null,
+    "overdue": true
+  },
+  {
+    "id": 23,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 9, "title": "The Maidens" },
+    "borrowed_at": "2026-02-22",
+    "returned_at": "2026-03-01",
+    "overdue": false
+  },
+  {
+    "id": 24,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 10, "title": "The Power of Habit" },
+    "borrowed_at": "2026-02-25",
+    "returned_at": "2026-03-10",
+    "overdue": true
+  },
+  {
+    "id": 25,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 11, "title": "Brave New World" },
+    "borrowed_at": "2026-02-28",
+    "returned_at": null,
+    "overdue": false
+  },
+
+  {
+    "id": 26,
+    "user": { "id": 4, "name": "Ahmed Hassan", "email": "ahmed.hassan@example.com" },
+    "book": { "id": 12, "title": "Pride and Prejudice" },
+    "borrowed_at": "2026-03-01",
+    "returned_at": "2026-03-08",
+    "overdue": false
+  },
+  {
+    "id": 27,
+    "user": { "id": 5, "name": "Sara Mohamed", "email": "sara.mohamed@example.com" },
+    "book": { "id": 13, "title": "Harry Potter and the Sorcerer's Stone" },
+    "borrowed_at": "2026-03-03",
+    "returned_at": null,
+    "overdue": false
+  },
+  {
+    "id": 28,
+    "user": { "id": 6, "name": "Omar Khaled", "email": "omar.khaled@example.com" },
+    "book": { "id": 14, "title": "The Pragmatic Programmer" },
+    "borrowed_at": "2026-03-05",
+    "returned_at": "2026-03-25",
+    "overdue": true
+  },
+  {
+    "id": 29,
+    "user": { "id": 7, "name": "Mona Ali", "email": "mona.ali@example.com" },
+    "book": { "id": 1, "title": "The Silent Patient" },
+    "borrowed_at": "2026-03-07",
+    "returned_at": "2026-03-15",
+    "overdue": false
+  },
+  {
+    "id": 30,
+    "user": { "id": 8, "name": "Youssef Adel", "email": "youssef.adel@example.com" },
+    "book": { "id": 2, "title": "Atomic Habits" },
+    "borrowed_at": "2026-03-10",
+    "returned_at": null,
+    "overdue": true
+  }
+]
