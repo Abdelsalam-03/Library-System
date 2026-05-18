@@ -36,7 +36,7 @@ export async function getBook(id) {
 
 export async function getGenres() {
   try {
-    const response = await customFetch(`/api/genres/`, {
+    const response = await customFetch(`/api/admin/genres/`, {
       method: "GET",
     });
     const {data} = await response.json();

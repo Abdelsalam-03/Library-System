@@ -1,3 +1,4 @@
+import { addBook, getGenres } from "/services/admin/books.js";
 import { showToast } from "/utils/toast.js";
 
 document
@@ -37,11 +38,6 @@ document
       isValid = false;
     }
 
-    // isbn (basic check)
-    if (!/^[0-9\-]{10,17}$/.test(isbn)) {
-      isValid = false;
-    }
-
     // Year
     if (year < 1000 || year > new Date().getFullYear()) {
       isValid = false;
@@ -57,25 +53,10 @@ document
       isValid = false;
     }
 
-    // Image
-    if (!image) {
-      isValid = false;
-    }
-
-    // Description
-    if (description.length < 10) {
-      isValid = false;
-    }
-
+    console.log(genre);
     if (isValid) {
       try {
-        const books = JSON.parse(localStorage.getItem("books") || "[]");
-
-        const nextId =
-          books.length > 0 ? Math.max(...books.map((b) => b.id)) + 1 : 1;
-
         const newBook = {
-          id: nextId,
           title: title,
           author: author,
           genre: genre,
@@ -84,17 +65,47 @@ document
           copies: copies,
           available: copies,
           price: price,
-          description: description,
         };
 
-        books.push(newBook);
-        localStorage.setItem("books", JSON.stringify(books));
-
-        showToast("Book Created Successfully.", "success");
-        form.reset();
+        let response = await addBook(newBook);
+        console.log(response);
+        if (response) {
+          showToast("Book Created Successfully.", "success");
+          form.reset();
+        } else {
+          showToast("Failed to create book.", "error");
+        }
       } catch (err) {
         console.error(err);
         showToast("Something went wrong: " + err.message, "error");
       }
     }
   });
+
+async function fetchGenres() {
+  try {
+    let response = await getGenres();
+    fillGenresSelect(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+await fetchGenres();
+
+function fillGenresSelect(genres) {
+  let selectElement = document.getElementById("genre");
+  const fragment = document.createDocumentFragment();
+
+  genres.forEach((genre) => {
+    const option = document.createElement("option");
+
+    option.value = genre.id;
+    option.textContent = genre.name;
+
+    fragment.appendChild(option);
+  });
+
+  selectElement.innerHTML = "";
+  selectElement.appendChild(fragment);
+}
