@@ -40,3 +40,18 @@ class ChangePasswordSerializer(serializers.Serializer):
         if not user.check_password(value):
             raise serializers.ValidationError("Incorrect old password")
         return value
+
+class ChangeNameSerializer(serializers.Serializer):
+    username = serializers.CharField(
+        required=True,
+        min_length=3,
+        max_length=30
+    )
+
+    def validate_username(self, value):
+        if " " in value:
+            raise serializers.ValidationError(
+                "Username must not contain spaces."
+            )
+
+        return value

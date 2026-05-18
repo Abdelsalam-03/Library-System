@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework import generics
-from .serializers import RegisterSerializer, UserSerializer
+from .serializers import RegisterSerializer, UserSerializer, ChangeNameSerializer
 
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
@@ -54,4 +54,21 @@ class ChangePasswordView(APIView):
         user.save()
         
         return Response({"message": "Password changed successfully"}, status=status.HTTP_200_OK)
+
+class ChangeNameView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+
+        serializer = ChangeNameSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            
+            user = request.user
+            user.username = serializer.validated_data["username"]
+            user.save()
+            return Response({"message": "Name changed successfully"}, status=status.HTTP_200_OK)
+
+        return Response({"message": "Name not changed"}, status=status.HTTP_400_OK)
+
+        
         

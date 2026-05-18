@@ -14,6 +14,11 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
+    book_author = serializers.CharField(
+        source="book.author",
+        read_only=True
+    )
+
     available_copies = serializers.IntegerField(
         source="book.available",
         read_only=True
@@ -37,6 +42,7 @@ class BorrowRecordSerializer(serializers.ModelSerializer):
             # Book
             "book",
             "book_title",
+            "book_author",
             "available_copies",
 
             # Dates

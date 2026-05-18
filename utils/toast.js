@@ -38,3 +38,11 @@ export function showToast(message, type = "info", duration = 3000) {
         removeToast();
     });
 }
+
+export function showSuccessToast(message, duration = 3000) {
+    showToast(message, "success", duration);
+}
+
+export function showErrorToast(message, duration = 3000) {
+    showToast(message, "error", duration);
+}
