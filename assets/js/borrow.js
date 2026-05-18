@@ -27,8 +27,12 @@ function formatDate(dateString) {
 
 // Load borrowed books from API
 async function loadBorrowedBooks() {
-  const borrowings = await fetchMyBorrowings();
-  
+  const response = await fetchMyBorrowings();
+  if (!response.success) {
+    return;
+  }
+  const borrowings = response.data;
+  console.log(borrowings)
   if (!borrowTable) {
     console.error("Table body not found");
     return;
@@ -41,7 +45,6 @@ async function loadBorrowedBooks() {
   // Add rows for each borrowing
   borrowings.forEach(borrowing => {
     const row = document.createElement("tr");
-    
     // Check if overdue
     const dueDate = new Date(borrowing.due_date);
     const today = new Date();
@@ -49,8 +52,8 @@ async function loadBorrowedBooks() {
       row.style.backgroundColor = "#fff1f1";
     }
 
-    const borrowedDate = formatDate(borrowing.borrowed_at || borrowing.approved_at);
-    const dueFormattedDate = formatDate(borrowing.due_date);
+    const borrowedDate = formatDate(borrowing.requested_at || borrowing.approved_at);
+    const dueFormattedDate = borrowing.status == "pending" || borrowing.status == "rejected"? "-" : formatDate(borrowing.due_date);
 
     let actionButtons = '';
     if (borrowing.status === "approved") {
@@ -62,6 +65,8 @@ async function loadBorrowedBooks() {
       actionButtons = `<span style="color: #666; font-size: 0.9em;">Returned</span>`;
     } else if (borrowing.status === "pending") {
       actionButtons = `<span style="color: #f39c12; font-size: 0.9em;">Pending Approval</span>`;
+    } else if (borrowing.status === "rejected") {
+      actionButtons = `<span style="color: rgb(199, 52, 52); font-size: 0.9em;" title="${borrowing.rejection_reason}">Rejected (Hover to view resason)</span>`;
     }
 
     row.innerHTML = `
