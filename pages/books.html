@@ -33,6 +33,15 @@
       background-color: #f4f4f4;
     }
 
+    td img {
+      width: 40px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin: auto;
+    }
+
     button {
       padding: 6px 12px;
       margin-right: 5px;
@@ -71,7 +80,7 @@
     </select>
 
     <button onclick="filterBooks()">Search</button><br />
-    <table border="2">
+    <table border="2" id="books_table">
       <thead>
         <tr>
           <th>Title</th>
@@ -85,8 +94,8 @@
       <tbody id="booksTable"></tbody>
     </table>
   </section>
-  <script src="/assets/js/borrow.js"></script>
-  <script src="../assets/js/books.js"></script>
+  <script type="module" src="/assets/js/borrow.js"></script>
+  <script type="module" src="../assets/js/books.js"></script>
   <script type="module" src="/assets/js/auth.js"></script>
 </body>
 

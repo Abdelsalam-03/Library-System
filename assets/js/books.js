@@ -1,25 +1,38 @@
+import { customFetch, parseErrors } from "/utils/api.js";
+import { borrowBook } from "/services/borrow.js"
+
 let books = [];
 
 // =========================
 // BORROWED BOOKS (LOCAL STORAGE)
 // =========================
-let borrowedBooks =
-  JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
 
 // =========================
 // LOAD FROM BACKEND
 // =========================
-async function loadBooks() {
+async function loadBooks(params = {}) {
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/books/");
-    const result = await response.json();
-
-    // IMPORTANT: your API returns {success, data}
-    books = result.data || [];
-
-    displayBooks(books);
+    let url = `/api/books/?`;
+    if (params.status) {
+      if (params.status == "available") params.available = 1;
+      else params.available = 0;
+      delete params.status;
+    } else {
+      delete params.available;
+    }
+    const querystring = new URLSearchParams(params).toString();
+    const response = await customFetch(url + querystring, {
+      method: "GET",
+    });
+    let { data } = await response.json();
+    if (data) {
+      books = data;
+      displayBooks(data);
+    }
+    // return { data: data };
   } catch (error) {
-    console.error("Error loading books:", error);
+    console.error("Error fetching JSON:", error);
   }
 }
 
@@ -36,13 +49,17 @@ function displayBooks(bookList) {
     table.innerHTML += `
       <tr>
         <td>${book.title}</td>
+        <td class="image">
+          <img src="https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg" 
+          alt="${book.title} cover">
+        </td>
         <td>${book.author}</td>
-        <td>${book.genre}</td>
-        <td>${book.available ? "Available" : "Unavailable"}</td>
+        <td>${book.genre.name}</td>
+        <td>${book.available > 0 ? "Available" : "Unavailable"}</td>
         <td>
           <a href="view_book.html?id=${book.id}">View</a>
 
-          <button onclick="handleBorrow(${book.id})"
+          <button class="borrow" data-id="${book.id}"
             ${isBorrowed ? "disabled" : ""}
             style="background-color: ${isBorrowed ? "gray" : ""};
                    cursor: ${isBorrowed ? "not-allowed" : "pointer"};">
@@ -53,6 +70,8 @@ function displayBooks(bookList) {
     `;
   });
 }
+
+
 
 // =========================
 // FILTER BOOKS
@@ -66,8 +85,7 @@ function filterBooks() {
       book.title.toLowerCase().includes(search) ||
       book.author.toLowerCase().includes(search);
 
-    let matchesCategory =
-      category === "All" || book.genre === category;
+    let matchesCategory = category === "All" || book.genre === category;
 
     return matchesSearch && matchesCategory;
   });
@@ -82,10 +100,7 @@ function handleBorrow(bookId) {
   if (!borrowedBooks.includes(bookId)) {
     borrowedBooks.push(bookId);
 
-    localStorage.setItem(
-      "borrowedBooks",
-      JSON.stringify(borrowedBooks)
-    );
+    localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
 
     displayBooks(books);
   }
@@ -97,3 +112,20 @@ function handleBorrow(bookId) {
 window.onload = async function () {
   await loadBooks();
 };
+
+async function borrow(id) {
+  try {
+    let response = await borrowBook(id)
+    console.log(response);
+  } catch (error) {
+    
+  }
+}
+
+const table = document.getElementById("books_table");
+
+table.addEventListener("click", (e) => {
+    if (e.target.classList.contains("borrow")) {
+        borrow(e.target.dataset.id)
+    }
+});

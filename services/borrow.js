@@ -1,7 +1,7 @@
 import { customFetch, parseErrors } from "/utils/api.js";
 import { showErrorToast, showSuccessToast } from "/utils/toast.js";
 
-const API_BASE = "/api/borrowing";
+const API_BASE = "/api";
 
 // Fetch all borrowed books for the current user
 export async function fetchMyBorrowings() {
@@ -68,7 +68,7 @@ export async function borrowBook(bookId) {
   try {
     const response = await customFetch(`${API_BASE}/borrow/`, {
       method: "POST",
-      body: JSON.stringify({ book: bookId }),
+      body: JSON.stringify({ book_id: bookId }),
     });
 
     if (!response.ok) {
