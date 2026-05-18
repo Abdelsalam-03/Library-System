@@ -1,4 +1,5 @@
 import { getBook } from "/services/admin/books.js";
+import { customFetch } from "/utils/api.js";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -9,7 +10,7 @@ await fetchBook();
 async function fetchBook() {
   try {
     let response = await getBook(ID);
-    fillBookInformation(response.data);
+    fillBookInformation(response);
   } catch (error) {
     console.log(error);
   }
@@ -29,7 +30,7 @@ function fillBookInformation(book) {
 
                 <div class="actions">
                     <a href="/pages/admin/edit_book.html?book=${book.id}" class="edit-btn">Edit</a>
-                    <button class="delete-btn">Delete</button>
+                    <button class="delete-btn" onclick="deleteBook(${book.id})">Delete</button>
                 </div>
             </div>
         </div>
@@ -53,3 +54,21 @@ function fillBookInformation(book) {
         
   `;
 }
+
+async function deleteBook(id) {
+  let confirm = window.confirm("Are you sure you want to delete?")
+  if (confirm) {
+    try {
+      let response = await customFetch(`/api/admin/books/${id}/`, {
+        method: "DELETE",
+      });
+  
+      alert("Book deleted successfully, click ok to refresh");
+      window.location.assign("/pages/admin/view_books.html");
+    } catch (error) {
+      alert("Error deleting book, click ok to try again");
+    }
+  }
+}
+
+window.deleteBook = deleteBook;
