@@ -75,3 +75,16 @@ function matchValue(text, value) {
   const regex = new RegExp(value, "i");
   return regex.test(text);
 }
+
+export async function addBook(book){
+    try {
+    const response = await customFetch(`/api/admin/books/`, {
+      method: "POST",
+      body: JSON.stringify(book)
+    });
+    const {data} = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+  }
+}
