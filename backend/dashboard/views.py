@@ -11,6 +11,8 @@ from .serializers import BookAdminDashboardSerializer, BorrowRecordSerializer
 from rest_framework.views import APIView
 from django.utils import timezone
 from datetime import timedelta
+from rest_framework.permissions import IsAuthenticated
+
 
 class AdminDashboard(APIView):
     permission_classes = [IsAdminRole]
