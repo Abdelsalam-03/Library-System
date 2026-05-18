@@ -124,8 +124,10 @@ async function borrow(id) {
 
 const table = document.getElementById("books_table");
 
-table.addEventListener("click", (e) => {
-    if (e.target.classList.contains("borrow")) {
-        borrow(e.target.dataset.id)
-    }
-});
+if(table){
+  table.addEventListener("click", (e) => {
+  if (e.target.classList.contains("borrow")) {
+    borrow(e.target.dataset.id)
+      }
+  });
+}
